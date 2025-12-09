@@ -19,7 +19,7 @@ namespace SAE101Foudre
         public MainWindow()
         {
             InitializeComponent();
-            OuvrirJeu(new MenuAccueil());
+            OuvrirJeu(new Jeu());
         }
 
         public void OuvrirJeu(UserControl jeu)
