@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,19 +16,13 @@ using System.Windows.Shapes;
 namespace SAE101Foudre
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logique d'interaction pour MenuAccueil.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MenuAccueil : UserControl
     {
-        public MainWindow()
+        public MenuAccueil()
         {
             InitializeComponent();
-            OuvrirJeu(new MenuAccueil());
-        }
-
-        public void OuvrirJeu(UserControl jeu)
-        {
-            this.Content = jeu;
         }
     }
 }
