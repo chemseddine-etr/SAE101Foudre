@@ -7,9 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1600" x:Name="UCJeu">
     <UserControl.Background>
-        <ImageBrush ImageSource="/imgFond.jpeg"/>
+        <ImageBrush ImageSource="Images/imgFond.jpeg"/>
     </UserControl.Background>
     <Canvas>
         <Image Source="/Images/imgSol.png" Stretch="Fill" Canvas.Top="450" Width="1600" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Image x:Name="imgPerso" Height="100" Canvas.Left="780" Source="/Images/imgPerso0.png" Stretch="Fill" Canvas.Top="719"/>
     </Canvas>
 </UserControl>
