@@ -13,6 +13,7 @@
     <None Remove="Images\imgPerso0.png" />
     <None Remove="Images\imgSol.png" />
     <None Remove="imgFondAcceuil.png" />
+    <None Remove="imgFondOptions.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
     <Resource Include="Images\imgPerso0.png" />
     <Resource Include="Images\imgSol.png" />
     <Resource Include="imgFondAcceuil.png" />
+    <Resource Include="imgFondOptions.png" />
   </ItemGroup>
 
 </Project>

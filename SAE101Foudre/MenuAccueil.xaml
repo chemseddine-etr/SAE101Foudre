@@ -10,9 +10,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="/imgFondAcceuil.png"/>
         </Grid.Background>
-        <Button x:Name="butJouerAcceuil" Content="JOUER" HorizontalAlignment="Left" Margin="320,226,0,0" VerticalAlignment="Top" Width="140" Height="40" Foreground="White" Background="#FF0082A0" Click="butJouerAcceuil_Click"/>
-        <Button x:Name="butOptionsAcceuil" Content="OPTIONS" HorizontalAlignment="Left" Margin="320,286,0,0" VerticalAlignment="Top" Width="140" Height="40" Background="#FF0082A0" Foreground="White" Click="butOptionsAcceuil_Click"/>
-        <Button x:Name="butQuitterAcceuil" Content="QUITTER" HorizontalAlignment="Left" Margin="320,346,0,0" VerticalAlignment="Top" Background="#FF0082A0" Foreground="White" Width="140" Height="40" Click="butQuitterAcceuil_Click"/>
+        <Button x:Name="butJouerAcceuil" Content="JOUER" HorizontalAlignment="Left" Margin="320,226,0,0" VerticalAlignment="Top" Width="140" Height="40" Foreground="White" Background="#FF0082A0" Click="butJouerAcceuil_Click" FontFamily="Algerian" FontSize="18"/>
+        <Button x:Name="butOptionsAcceuil" Content="OPTIONS" HorizontalAlignment="Left" Margin="320,286,0,0" VerticalAlignment="Top" Width="140" Height="40" Background="#FF0082A0" Foreground="White" Click="butOptionsAcceuil_Click" FontFamily="Algerian" FontSize="18"/>
+        <Button x:Name="butQuitterAcceuil" Content="QUITTER" HorizontalAlignment="Left" Margin="320,346,0,0" VerticalAlignment="Top" Background="#FF0082A0" Foreground="White" Width="140" Height="40" Click="butQuitterAcceuil_Click" FontFamily="Algerian" FontSize="18"/>
         <Image Margin="190,-15,210,240" Source="/Images/imgLogoAcceuil.png" Stretch="Fill" Width="400" Height="225"/>
 
     </Grid>

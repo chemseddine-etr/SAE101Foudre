@@ -32,7 +32,7 @@ namespace SAE101Foudre
 
         private void butOptionsAcceuil_Click(object sender, RoutedEventArgs e)
         {
-            
+            //MainWindow.NaviguerVers();
         }
 
         private void butJouerAcceuil_Click(object sender, RoutedEventArgs e)
