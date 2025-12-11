@@ -26,5 +26,10 @@ namespace SAE101Foudre
         {
             this.Content = jeu;
         }
+
+        public void NaviguerVers(UserControl fenetre)
+        {
+            this.Content = fenetre;
+        }
     }
 }

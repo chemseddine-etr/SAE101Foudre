@@ -24,5 +24,20 @@ namespace SAE101Foudre
         {
             InitializeComponent();
         }
+
+        private void butQuitterAcceuil_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void butOptionsAcceuil_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void butJouerAcceuil_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
