@@ -27,7 +27,7 @@ namespace SAE101Foudre
 
         private void butRetourOptions_Click(object sender, RoutedEventArgs e)
         {
-
+            ((MainWindow)Application.Current.MainWindow).NaviguerVers(new MenuAccueil());
         }
 
         private void butDifficileOptions_Click(object sender, RoutedEventArgs e)

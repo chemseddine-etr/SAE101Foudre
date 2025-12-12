@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <None Remove="Images\imgFond.jpeg" />
+    <None Remove="Images\imgFondAcceuil.png" />
+    <None Remove="Images\imgFondOptions.png" />
+    <None Remove="Images\imgLogoAcceuil.png" />
     <None Remove="Images\imgPerso0.png" />
     <None Remove="Images\imgSol.png" />
     <None Remove="imgFondAcceuil.png" />
@@ -18,6 +21,9 @@
 
   <ItemGroup>
     <Resource Include="Images\imgFond.jpeg" />
+    <Resource Include="Images\imgFondAcceuil.png" />
+    <Resource Include="Images\imgFondOptions.png" />
+    <Resource Include="Images\imgLogoAcceuil.png" />
     <Resource Include="Images\imgPerso0.png" />
     <Resource Include="Images\imgSol.png" />
     <Resource Include="imgFondAcceuil.png" />
