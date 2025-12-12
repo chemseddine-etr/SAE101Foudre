@@ -20,9 +20,16 @@ namespace SAE101Foudre
     /// </summary>
     public partial class Jeu : UserControl
     {
+
         public Jeu()
         {
             InitializeComponent();
+            ChargerJeu();
+
+        }
+
+        public void ChargerJeu()
+        {
         }
     }
 }

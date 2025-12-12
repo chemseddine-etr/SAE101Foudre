@@ -25,19 +25,19 @@ namespace SAE101Foudre
             InitializeComponent();
         }
 
-        private void butQuitterAcceuil_Click(object sender, RoutedEventArgs e)
+        private void butJouerAcceuil_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new Jeu());
         }
 
         private void butOptionsAcceuil_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).NaviguerVers(new MenuOptions());
+            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new MenuOptions());
         }
 
-        private void butJouerAcceuil_Click(object sender, RoutedEventArgs e)
+        private void butQuitterAcceuil_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).NaviguerVers(new Jeu());
+            Application.Current.Shutdown();
         }
     }
 }
