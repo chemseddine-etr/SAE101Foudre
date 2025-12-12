@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\imgEclair0.png" />
     <None Remove="Images\imgFond.jpeg" />
     <None Remove="Images\imgFondAcceuil.png" />
     <None Remove="Images\imgFondOptions.png" />
@@ -21,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\imgEclair0.png" />
     <Resource Include="Images\imgFond.jpeg" />
     <Resource Include="Images\imgFondAcceuil.png" />
     <Resource Include="Images\imgFondOptions.png" />

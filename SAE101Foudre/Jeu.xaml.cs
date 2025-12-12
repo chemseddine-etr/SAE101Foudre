@@ -26,6 +26,8 @@ namespace SAE101Foudre
         public static BitmapImage imgPerosD = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.png"));
         public static BitmapImage imgPersoG = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso1.png"));
 
+        public static BitmapImage imgEclair = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair0.png"));
+
         // -----------------------------------------Variables de deplacement---------------------------------------------
 
         public static bool DROITE = false;
@@ -40,8 +42,6 @@ namespace SAE101Foudre
 
         // ---------------------------------------------------------------------------------------------------------
 
-        DispatcherTimer gameTimer = new DispatcherTimer();
-
         public Jeu()
         {
             InitializeComponent();
@@ -54,6 +54,8 @@ namespace SAE101Foudre
         {
             DeplacerJoueur();
             AppliquerGravite();
+            CreerEclair();
+            //DeplacerEclair();
         }
 
         // -----------------------------------------Deplacement du personnage---------------------------------------------
@@ -121,10 +123,33 @@ namespace SAE101Foudre
             }
         }
 
+        // -----------------------------------------Création Obstacles------------------------------------------------------------
+
+        private void CreerEclair()
+        {
+            Random rand = new Random();
+            Image nouvelEclair = new Image
+            {
+                Width = 100,
+                Height = 200,
+                Source = imgEclair
+            };
+            canvasJeu.Children.Add(nouvelEclair);
+            Canvas.SetLeft(nouvelEclair, rand.Next(0,(int)canvasJeu.ActualWidth) - imgEclair.Width);
+            Canvas.SetTop(nouvelEclair, 0 - nouvelEclair.Height);
+        }
+
+        private void DeplacerEclair(Image eclair)
+        {
+            double topEclair = Canvas.GetTop(eclair);
+            Canvas.SetTop(eclair, topEclair + 5);
+        }
+
         // ---------------------------------------------------------------------------------------------------------
 
         private void Minuterie()
         {
+            DispatcherTimer gameTimer = new DispatcherTimer();
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(8.33);
             gameTimer.Start();
