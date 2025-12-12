@@ -14,7 +14,6 @@
     <None Remove="Images\imgFondOptions.png" />
     <None Remove="Images\imgLogoAcceuil.png" />
     <None Remove="Images\imgPerso0.png" />
-    <None Remove="Images\imgSol.png" />
     <None Remove="imgFondAcceuil.png" />
     <None Remove="imgFondOptions.png" />
   </ItemGroup>
@@ -25,7 +24,6 @@
     <Resource Include="Images\imgFondOptions.png" />
     <Resource Include="Images\imgLogoAcceuil.png" />
     <Resource Include="Images\imgPerso0.png" />
-    <Resource Include="Images\imgSol.png" />
     <Resource Include="imgFondAcceuil.png" />
     <Resource Include="imgFondOptions.png" />
   </ItemGroup>

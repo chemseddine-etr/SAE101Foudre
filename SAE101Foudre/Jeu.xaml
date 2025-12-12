@@ -10,12 +10,11 @@
         <ImageBrush ImageSource="Images/imgFond.jpeg"/>
     </UserControl.Background>
     <Canvas x:Name="canvasJeu">
-
-        <Image x:Name="imgSol" Canvas.Bottom="0" Canvas.Left="0" Stretch="UniformToFill" Source="/Images/imgSol.png" >
+        <Image x:Name="imgSol" Canvas.Bottom="-30" Canvas.Left="0" Source="/Images/imgSol.png" >
             <Image.Width>
                 <Binding Path="ActualWidth" ElementName="canvasJeu"/>
             </Image.Width>
         </Image>
-        <Image x:Name="imgPerso" Height="294" Canvas.Left="901" Source="/Images/imgPerso0.png" Stretch="Fill" Canvas.Top="635" Width="118"/>
+        <Image x:Name="imgPerso" Canvas.Left="920" Height="100" Source="/Images/imgPerso0.png" Stretch="Fill" Canvas.Top="829" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Canvas>
 </UserControl>
