@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SAE101Foudre"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920" x:Name="UCJeu">
+             d:DesignHeight="1080" d:DesignWidth="1920" x:Name="UCJeu" KeyDown="UCJeu_KeyDown" KeyUp="UCJeu_KeyUp" Loaded="UCJeu_Loaded">
     <UserControl.Background>
         <ImageBrush ImageSource="Images/imgFond.jpeg"/>
     </UserControl.Background>
@@ -15,7 +15,6 @@
                 <Binding Path="ActualWidth" ElementName="canvasJeu"/>
             </Image.Width>
         </Image>
-
-        <Image x:Name="imgPerso" Canvas.Bottom="100" Canvas.Left="800" Height="125" Source="/Images/imgPerso0.png" />
+        <Image x:Name="imgPerso" Canvas.Top="810" Canvas.Left="800" Height="125" Source="/Images/imgPerso0.png" />
     </Canvas>
 </UserControl>
