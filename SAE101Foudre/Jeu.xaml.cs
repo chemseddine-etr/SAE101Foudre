@@ -25,7 +25,6 @@ namespace SAE101Foudre
         {
             InitializeComponent();
             ChargerJeu();
-
         }
 
         public void ChargerJeu()

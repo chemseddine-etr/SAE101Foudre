@@ -15,6 +15,7 @@
                 <Binding Path="ActualWidth" ElementName="canvasJeu"/>
             </Image.Width>
         </Image>
-        <Image x:Name="imgPerso" Canvas.Left="920" Height="100" Source="/Images/imgPerso0.png" Stretch="Fill" Canvas.Top="829" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Image x:Name="imgPerso" Canvas.Bottom="100" Canvas.Left="800" Height="125" Source="/Images/imgPerso0.png" />
     </Canvas>
 </UserControl>
