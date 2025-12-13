@@ -27,20 +27,34 @@ namespace SAE101Foudre
         public static BitmapImage imgPersoG = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso1.png"));
 
         public static BitmapImage imgEclair = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair0.png"));
+        public static BitmapImage imgBoule = new BitmapImage(new Uri("pack://application:,,,/Images/imgBoule.png"));
+
+        public static BitmapImage imgTroll = new BitmapImage(new Uri("pack://application:,,,/Images/imgFondTroll.png"));
+
+        List<Image> mesEclairs = new List<Image>();
+        List<Image> mesBoules = new List<Image>();
 
         // -----------------------------------------Variables de deplacement---------------------------------------------
 
-        public static bool DROITE = false;
-        public static bool GAUCHE = false;
-        public static int VITESSE_PERSO = 10;
+        public static bool droite = false;
+        public static bool gauche = false;
+        public static int vitessePerso = 10;
 
         public static bool auSol = true;
+        public static int niveauSol = 810;
         public static int vitesseVerticale = 0; //vitesse actuelle du personnage
         public static int gravite = 1; //vitesse du personnage qui tombe (1 = lente, 5 = rapide)
-        public static int hauteurSaut = -23; //(-10 = tres bas, -50 = tres haut)
-        public static int niveauSol = 810;
+        public static int hauteurSaut = -23; //hauteur du saut (-10 = tres bas, -50 = tres haut)
+
+        public static int frequenceEclair = 70; //fréquence d'apparition des éclairs (5 = beaucoup)
+        public static int vitesseEclair = 20;
+        public static int frequenceBoule = 200; //fréquence d'apparition des boules (5 = beaucoup)
+        public static int vitesseBoule = 10;
 
         // ---------------------------------------------------------------------------------------------------------
+
+        DispatcherTimer gameTimer = new DispatcherTimer();
+        Random alea = new Random();
 
         public Jeu()
         {
@@ -54,18 +68,17 @@ namespace SAE101Foudre
         {
             DeplacerJoueur();
             AppliquerGravite();
-            CreerEclair();
-            //DeplacerEclair();
+            DeplacerObstacle();
         }
 
         // -----------------------------------------Deplacement du personnage---------------------------------------------
 
         private void DeplacerJoueur()
         {
-            if (GAUCHE && Canvas.GetLeft(imgPerso) > 0)
-                Canvas.SetLeft(imgPerso, Canvas.GetLeft(imgPerso) - VITESSE_PERSO);
-            if (DROITE && Canvas.GetLeft(imgPerso) + imgPerso.ActualWidth < canvasJeu.ActualWidth)
-                Canvas.SetLeft(imgPerso, Canvas.GetLeft(imgPerso) + VITESSE_PERSO);
+            if (gauche && Canvas.GetLeft(imgPerso) > 0)
+                Canvas.SetLeft(imgPerso, Canvas.GetLeft(imgPerso) - vitessePerso);
+            if (droite && Canvas.GetLeft(imgPerso) + imgPerso.ActualWidth < canvasJeu.ActualWidth)
+                Canvas.SetLeft(imgPerso, Canvas.GetLeft(imgPerso) + vitessePerso);
         }
 
         private void AppliquerGravite()
@@ -94,14 +107,14 @@ namespace SAE101Foudre
         {
             if (e.Key == Key.D)
             {
-                DROITE = true;
-                GAUCHE = false;
+                droite = true;
+                gauche = false;
                 imgPerso.Source = imgPerosD;
             }
             else if (e.Key == Key.Q)
             {
-                GAUCHE = true;
-                DROITE = false;
+                gauche = true;
+                droite = false;
                 imgPerso.Source = imgPersoG;
             }
             if (e.Key == Key.Space && auSol == true)
@@ -109,17 +122,24 @@ namespace SAE101Foudre
                 vitesseVerticale = hauteurSaut;
                 auSol = false;
             }
+
+            if (e.Key == Key.T)
+            {
+                var uriSource = new Uri("pack://application:,,,/Images/imgFondTroll.png");
+                imgFond.ImageSource = new BitmapImage(uriSource);
+            }
+
         }
 
         private void UCJeu_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.D)
             {
-                DROITE = false;
+                droite = false;
             }
             else if (e.Key == Key.Q)
             {
-                GAUCHE = false;
+                gauche = false;
             }
         }
 
@@ -127,29 +147,83 @@ namespace SAE101Foudre
 
         private void CreerEclair()
         {
-            Random rand = new Random();
             Image nouvelEclair = new Image
             {
                 Width = 100,
                 Height = 200,
                 Source = imgEclair
             };
-            canvasJeu.Children.Add(nouvelEclair);
-            Canvas.SetLeft(nouvelEclair, rand.Next(0,(int)canvasJeu.ActualWidth) - imgEclair.Width);
+
+            double positionX = alea.Next(0, (int)canvasJeu.ActualWidth - (int)nouvelEclair.Width);
+            Canvas.SetLeft(nouvelEclair, positionX);
             Canvas.SetTop(nouvelEclair, 0 - nouvelEclair.Height);
+
+            canvasJeu.Children.Add(nouvelEclair);
+
+            mesEclairs.Add(nouvelEclair);
         }
 
-        private void DeplacerEclair(Image eclair)
+        private void CreerBoule()
         {
-            double topEclair = Canvas.GetTop(eclair);
-            Canvas.SetTop(eclair, topEclair + 5);
+            Image nouvelleBoule = new Image
+            {
+                Width = 100,
+                Height = 200,
+                Source = imgBoule
+            };
+
+            Canvas.SetLeft(nouvelleBoule, 0 - nouvelleBoule.Width);
+            Canvas.SetTop(nouvelleBoule, Canvas.GetTop(imgPerso) - 30);
+
+            canvasJeu.Children.Add(nouvelleBoule);
+
+            mesBoules.Add(nouvelleBoule);
+        }
+
+        private void DeplacerObstacle()
+        {
+            if (alea.Next(0, frequenceEclair) == 0)
+            {
+                CreerEclair();
+            }
+            if (alea.Next(0, frequenceBoule) == 0)
+            {
+                CreerBoule();
+            }
+
+            for (int i = mesEclairs.Count - 1; i >= 0; i--)
+            {
+                Image eclairActuel = mesEclairs[i];
+
+                double topActuel = Canvas.GetTop(eclairActuel);
+                Canvas.SetTop(eclairActuel, topActuel + vitesseEclair);
+
+                if (topActuel > canvasJeu.ActualHeight)
+                {
+                    canvasJeu.Children.Remove(eclairActuel);
+                    mesEclairs.RemoveAt(i);
+                }
+            }
+
+            for (int i = mesBoules.Count - 1; i >= 0; i--)
+            {
+                Image bouleActuel = mesBoules[i];
+
+                double leftActuel = Canvas.GetLeft(bouleActuel);
+                Canvas.SetLeft(bouleActuel, leftActuel + vitesseBoule);
+
+                if (leftActuel > canvasJeu.ActualWidth)
+                {
+                    canvasJeu.Children.Remove(bouleActuel);
+                    mesBoules.RemoveAt(i);
+                }
+            }
         }
 
         // ---------------------------------------------------------------------------------------------------------
 
         private void Minuterie()
         {
-            DispatcherTimer gameTimer = new DispatcherTimer();
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(8.33);
             gameTimer.Start();

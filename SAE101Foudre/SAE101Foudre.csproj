@@ -9,23 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\imgEclair0.png" />
-    <None Remove="Images\imgFond.jpeg" />
-    <None Remove="Images\imgFondAcceuil.png" />
-    <None Remove="Images\imgFondOptions.png" />
-    <None Remove="Images\imgLogoAcceuil.png" />
-    <None Remove="Images\imgPerso0.png" />
-    <None Remove="Images\imgPerso1.png" />
-    <None Remove="Images\imgSol.png" />
+    <None Remove="Images\imgBoule.png" />
+    <None Remove="Images\imgFondTroll.png" />
     <None Remove="imgFondAcceuil.png" />
     <None Remove="imgFondOptions.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\imgBoule.png" />
     <Resource Include="Images\imgEclair0.png" />
     <Resource Include="Images\imgFond.jpeg" />
     <Resource Include="Images\imgFondAcceuil.png" />
     <Resource Include="Images\imgFondOptions.png" />
+    <Resource Include="Images\imgFondTroll.png" />
     <Resource Include="Images\imgLogoAcceuil.png" />
     <Resource Include="Images\imgPerso0.png" />
     <Resource Include="Images\imgPerso1.png" />

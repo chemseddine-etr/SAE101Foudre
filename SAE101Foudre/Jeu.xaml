@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920" x:Name="UCJeu" KeyDown="UCJeu_KeyDown" KeyUp="UCJeu_KeyUp" Loaded="UCJeu_Loaded">
     <UserControl.Background>
-        <ImageBrush ImageSource="Images/imgFond.jpeg"/>
+        <ImageBrush x:Name="imgFond" ImageSource="Images/imgFond.jpeg"/>
     </UserControl.Background>
     <Canvas x:Name="canvasJeu">
         <Image x:Name="imgSol" Canvas.Bottom="-30" Canvas.Left="0" Source="/Images/imgSol.png" >
