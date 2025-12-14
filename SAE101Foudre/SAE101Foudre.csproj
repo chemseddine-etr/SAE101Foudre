@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\imgLogoCarre-_1_.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +16,10 @@
     <None Remove="imgFondAcceuil.png" />
     <None Remove="imgFondGameOver.png" />
     <None Remove="imgFondOptions.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\imgLogoCarre-_1_.ico" />
   </ItemGroup>
 
   <ItemGroup>
