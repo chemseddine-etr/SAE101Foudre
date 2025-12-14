@@ -251,8 +251,7 @@ namespace SAE101Foudre
         {
             gameTimer.Stop();
             musique.Stop();
-            MessageBox.Show("Tu as été foudroyé ! Game Over.");
-            Application.Current.Shutdown();
+            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new GameOverUC());
         }
 
 
