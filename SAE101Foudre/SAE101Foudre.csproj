@@ -11,7 +11,9 @@
   <ItemGroup>
     <None Remove="Images\imgBoule.png" />
     <None Remove="Images\imgFondTroll.png" />
+    <None Remove="Images\imgGameOver.png" />
     <None Remove="imgFondAcceuil.png" />
+    <None Remove="imgFondGameOver.png" />
     <None Remove="imgFondOptions.png" />
   </ItemGroup>
 
@@ -22,11 +24,13 @@
     <Resource Include="Images\imgFondAcceuil.png" />
     <Resource Include="Images\imgFondOptions.png" />
     <Resource Include="Images\imgFondTroll.png" />
+    <Resource Include="Images\imgGameOver.png" />
     <Resource Include="Images\imgLogoAcceuil.png" />
     <Resource Include="Images\imgPerso0.png" />
     <Resource Include="Images\imgPerso1.png" />
     <Resource Include="Images\imgSol.png" />
     <Resource Include="imgFondAcceuil.png" />
+    <Resource Include="imgFondGameOver.png" />
     <Resource Include="imgFondOptions.png" />
   </ItemGroup>
 
