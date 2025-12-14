@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="SAE101Foudre.GameOverUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SAE101Foudre"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/imgFondGameOver.png"/>
+        </Grid.Background>
+        <Image Margin="140,152,140,152" Source="/Images/imgGameOver.png" Stretch="Fill"/>
+        <Button x:Name="butMenuGameOver" Content="MENU" HorizontalAlignment="Left" Margin="170,358,0,0" VerticalAlignment="Top" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FF0082A0" Click="butMenuGameOver_Click"/>
+        <Button x:Name="butQuitterGameOver" Content="QUITTER" HorizontalAlignment="Left" Margin="490,358,0,0" VerticalAlignment="Top" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FFFF2D2D" Click="butQuitterGameOver_Click"/>
+
+    </Grid>
+</UserControl>
