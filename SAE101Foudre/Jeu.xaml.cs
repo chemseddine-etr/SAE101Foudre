@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -46,20 +47,26 @@ namespace SAE101Foudre
         public static int gravite = 1; //vitesse du personnage qui tombe (1 = lente, 5 = rapide)
         public static int hauteurSaut = -23; //hauteur du saut (-10 = tres bas, -50 = tres haut)
 
-        public static int frequenceEclair = 70; //fréquence d'apparition des éclairs (5 = beaucoup)
+        public static int frequenceEclair = 50; //fréquence d'apparition des éclairs (5 = beaucoup)
         public static int vitesseEclair = 20;
-        public static int frequenceBoule = 200; //fréquence d'apparition des boules (5 = beaucoup)
-        public static int vitesseBoule = 10;
+        public static int frequenceBoule = 160; //fréquence d'apparition des boules (5 = beaucoup)
+        public static int vitesseBoule = 15;
+
+        //mode difficile : 
+        // mode hardocre : 60 20 165 15
 
         // ---------------------------------------------------------------------------------------------------------
 
         DispatcherTimer gameTimer = new DispatcherTimer();
         Random alea = new Random();
 
+        MediaPlayer musique = new MediaPlayer();
+
         public Jeu()
         {
             InitializeComponent();
             Minuterie();
+            Musique();
         }
 
         // -------------------------------------------Boucle de jeu----------------------------------------------------
@@ -69,6 +76,7 @@ namespace SAE101Foudre
             DeplacerJoueur();
             AppliquerGravite();
             DeplacerObstacle();
+            VerifierCollisions();
         }
 
         // -----------------------------------------Deplacement du personnage---------------------------------------------
@@ -147,12 +155,7 @@ namespace SAE101Foudre
 
         private void CreerEclair()
         {
-            Image nouvelEclair = new Image
-            {
-                Width = 100,
-                Height = 200,
-                Source = imgEclair
-            };
+            Image nouvelEclair = new Image { Width = 150, Height = 300, Source = imgEclair };
 
             double positionX = alea.Next(0, (int)canvasJeu.ActualWidth - (int)nouvelEclair.Width);
             Canvas.SetLeft(nouvelEclair, positionX);
@@ -185,6 +188,7 @@ namespace SAE101Foudre
             if (alea.Next(0, frequenceEclair) == 0)
             {
                 CreerEclair();
+                JouerSon("eclair.wav");
             }
             if (alea.Next(0, frequenceBoule) == 0)
             {
@@ -219,6 +223,38 @@ namespace SAE101Foudre
                 }
             }
         }
+        private void VerifierCollisions()
+        {
+            int valHit = 25;
+            Rect boxJoueur = new Rect(Canvas.GetLeft(imgPerso) + valHit, Canvas.GetTop(imgPerso) + valHit, imgPerso.ActualWidth - valHit, imgPerso.ActualHeight - valHit);
+            foreach (Image eclair in mesEclairs)
+            {
+                Rect boxEclair = new Rect(Canvas.GetLeft(eclair) + valHit, Canvas.GetTop(eclair) + valHit, eclair.Width - valHit, eclair.Height - valHit);
+                if (boxJoueur.IntersectsWith(boxEclair))
+                {
+                    FinDuJeu();
+                    return;
+                }
+            }
+            foreach (Image boule in mesBoules)
+            {
+                Rect boxBoule = new Rect(Canvas.GetLeft(boule) + valHit, Canvas.GetTop(boule) + valHit, boule.Width - valHit, boule.Height - valHit);
+                if (boxJoueur.IntersectsWith(boxBoule))
+                {
+                    FinDuJeu();
+                    return;
+                }
+            }
+        }
+
+        private void FinDuJeu()
+        {
+            gameTimer.Stop();
+            musique.Stop();
+            MessageBox.Show("Tu as été foudroyé ! Game Over.");
+            Application.Current.Shutdown();
+        }
+
 
         // ---------------------------------------------------------------------------------------------------------
 
@@ -227,6 +263,26 @@ namespace SAE101Foudre
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(8.33);
             gameTimer.Start();
+        }
+
+        public void Musique()
+        {
+            musique.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Sons/musique.wav"));
+            musique.MediaEnded += RelancerMusique;
+            musique.Play();
+        }
+
+        private void RelancerMusique(object sender, EventArgs e)
+        {
+            musique.Position = TimeSpan.Zero;
+            musique.Play();
+        }
+
+        private void JouerSon(string nomFichier)
+        {
+            MediaPlayer son = new MediaPlayer();
+            son.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Sons/" + nomFichier));
+            son.Play();
         }
 
         private void UCJeu_Loaded(object sender, RoutedEventArgs e)

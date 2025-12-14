@@ -30,4 +30,13 @@
     <Resource Include="imgFondOptions.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Sons\eclair.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Sons\musique.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
