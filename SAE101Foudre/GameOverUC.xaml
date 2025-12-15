@@ -5,14 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SAE101Foudre"
-             mc:Ignorable="d" >
+             mc:Ignorable="d" d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Background>
+        <ImageBrush ImageSource="/imgFondGameOver.png"/>
+    </UserControl.Background>
     <Grid x:Name="gridGameOver">
-        <Grid.Background>
-            <ImageBrush ImageSource="/imgFondGameOver.png"/>
-        </Grid.Background>
-        <Image Margin="140,152,140,152" Source="/Images/imgGameOver.png" Stretch="Fill"/>
-        <Button x:Name="butMenuGameOver" Content="MENU" HorizontalAlignment="Left" Margin="170,358,0,0" VerticalAlignment="Top" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FF0082A0" Click="butMenuGameOver_Click"/>
-        <Button x:Name="butQuitterGameOver" Content="QUITTER" HorizontalAlignment="Left" Margin="490,358,0,0" VerticalAlignment="Top" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FFFF2D2D" Click="butQuitterGameOver_Click"/>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Height="300" Width="1000" Source="/Images/imgGameOver.png" Stretch="Fill"/>
+            <TextBlock x:Name="txtScoreGameOver" Text="Score :" FontFamily="Algerian" Canvas.Top="20" Canvas.Left="20" FontSize="50" Padding="80,35" HorizontalAlignment="Center" VerticalAlignment="Center" Width="432" Margin="0,40,0,0">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="Images/imgParchemin.png"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
+                <Button x:Name="butMenuGameOver" Content="MENU" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FF0082A0" Click="butMenu_Click" Margin="0,0,150,0"/>
+                <Button x:Name="butMenuRejouer" Content="REJOUER" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FF00A044" Click="butMenuRejouer_Click" Margin="0,0,150,0"/>
+                <Button x:Name="butQuitterGameOver" Content="QUITTER" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FFFF2D2D" Click="butQuitterGameOver_Click"/>
+            </StackPanel>
+        </StackPanel>
 
     </Grid>
 </UserControl>

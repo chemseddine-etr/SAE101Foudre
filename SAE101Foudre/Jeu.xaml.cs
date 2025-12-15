@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace SAE101Foudre
 {
@@ -32,40 +33,42 @@ namespace SAE101Foudre
 
         public static BitmapImage imgTroll = new BitmapImage(new Uri("pack://application:,,,/Images/imgFondTroll.png"));
 
-        List<Image> eclairs = new List<Image>();
-        List<Image> boules = new List<Image>();
+        public static List<Image> eclairs = new List<Image>();
+        public static List<Image> boules = new List<Image>();
 
-        List<Line> pluie = new List<Line>();
-        int nombreGouttes = 80;
-        int vitessePluie = 25;
+        public static List<Line> pluie = new List<Line>();
+        public static int nombreGouttes = 80;
+        public static int vitessePluie = 25;
 
         // -----------------------------------------Variables de deplacement---------------------------------------------
 
-        public static bool droite = false;
-        public static bool gauche = false;
-        public static int vitessePerso = 10;
+        public bool droite = false;
+        public bool gauche = false;
+        public int vitessePerso = 10;
 
-        public static bool auSol = true;
+        public bool auSol = true;
         public static int niveauSol = 810;
-        public static int vitesseVerticale = 0; //vitesse actuelle du personnage
+        public int vitesseVerticale = 0; //vitesse actuelle du personnage
         public static int gravite = 1; //vitesse du personnage qui tombe (1 = lente, 5 = rapide)
         public static int hauteurSaut = -23; //hauteur du saut (-10 = tres bas, -50 = tres haut)
 
-        public static int frequenceEclair = 50; //fréquence d'apparition des éclairs (5 = beaucoup)
-        public static int vitesseEclair = 15;
-        public static int frequenceBoule = 165; //fréquence d'apparition des boules (5 = beaucoup)
-        public static int vitesseBoule = 15;
+        public int frequenceEclair = MenuAccueil.frequenceEclair;
+        public int vitesseEclair = MenuAccueil.vitesseEclair;
+        public int frequenceBoule = MenuAccueil.frequenceBoule;
+        public int vitesseBoule = MenuAccueil.vitesseBoule;
 
-        // mode difficile : 
-        // mode hardocre : 60 15 165 15
-
+        
         // ---------------------------------------------------------------------------------------------------------
 
-        DispatcherTimer gameTimer = new DispatcherTimer();
-        Random alea = new Random();
+        public static DispatcherTimer gameTimer = new DispatcherTimer();
 
-        MediaPlayer musique = new MediaPlayer();
-        MediaPlayer musique2 = new MediaPlayer();
+        public static Random alea = new Random();
+
+        public static MediaPlayer musique = new MediaPlayer();
+        public static MediaPlayer musique2 = new MediaPlayer();
+
+        public static int score = 0;
+        public int compteurTempsScore = 0;
 
         public Jeu()
         {
@@ -84,6 +87,7 @@ namespace SAE101Foudre
             DeplacerObstacle();
             VerifierCollisions();
             AnimerPluie();
+            GererScore();
         }
 
         // -----------------------------------------Deplacement du personnage---------------------------------------------
@@ -232,7 +236,7 @@ namespace SAE101Foudre
         }
         private void VerifierCollisions()
         {
-            int valHit = 25;
+            int valHit = 40;
             Rect boxJoueur = new Rect(Canvas.GetLeft(imgPerso) + valHit, Canvas.GetTop(imgPerso) + valHit, imgPerso.ActualWidth - valHit, imgPerso.ActualHeight - valHit);
             foreach (Image eclair in eclairs)
             {
@@ -253,14 +257,6 @@ namespace SAE101Foudre
                 }
             }
         }
-
-        private void FinDuJeu()
-        {
-            gameTimer.Stop();
-            musique.Stop();
-            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new GameOverUC());
-        }
-
 
         // ---------------------------------------------------------------------------------------------------------
 
@@ -301,6 +297,7 @@ namespace SAE101Foudre
                 // 1. On fait descendre la goutte
                 double topActuel = Canvas.GetTop(goutte);
                 Canvas.SetTop(goutte, topActuel + vitessePluie);
+                Canvas.SetLeft(goutte, Canvas.GetLeft(goutte) - 2);
 
                 // 2. Si elle dépasse le bas de l'écran (niveauSol ou un peu plus bas)
                 if (topActuel > niveauSol + 50)
@@ -341,6 +338,25 @@ namespace SAE101Foudre
             son.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Sons/" + nomFichier));
             son.Volume = volume;
             son.Play();
+        }
+
+        private void GererScore()
+        {
+            compteurTempsScore++;
+            if (compteurTempsScore >= 120)
+            {
+                score = score + 10;
+                txtScore.Text = "Score : " + score;
+                compteurTempsScore = 0;
+            }
+        }
+
+        private void FinDuJeu()
+        {
+            gameTimer.Stop();
+            musique.Stop();
+            musique2.Stop();
+            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new GameOverUC());
         }
 
         private void UCJeu_Loaded(object sender, RoutedEventArgs e)

@@ -8,7 +8,7 @@
              x:Name="UCAccueil" >
     <Grid x:Name="GridAcceuil">
         <Grid.Background>
-            <ImageBrush ImageSource="/imgFondAcceuil.png"/>
+            <ImageBrush ImageSource="Images/imgFondAcceuil.png"/>
         </Grid.Background>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,50" >
             <Image x:Name="imgLogoAcceuil" Source="/Images/imgLogoAcceuil.png" Stretch="Fill" Width="704" Height="384" Margin="0,0,0,80"/>

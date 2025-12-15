@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SAE101Foudre"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="1080" d:DesignWidth="1920" x:Name="UCJeu" KeyDown="UCJeu_KeyDown" KeyUp="UCJeu_KeyUp" Loaded="UCJeu_Loaded">
     <UserControl.Background>
         <ImageBrush x:Name="imgFond" ImageSource="Images/imgFond.jpeg"/>
@@ -16,5 +16,10 @@
             </Image.Width>
         </Image>
         <Image x:Name="imgPerso" Canvas.Top="810" Canvas.Left="800" Height="125" Source="/Images/imgPerso0.png" />
+        <TextBlock x:Name="txtScore" Text="Score : 0" FontFamily="Algerian" Canvas.Top="20" Canvas.Left="20" FontSize="50" Padding="80,35" HorizontalAlignment="Left" VerticalAlignment="Center" Width="432">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="Images/imgParchemin.png"/>
+            </TextBlock.Background>
+        </TextBlock>
     </Canvas>
 </UserControl>

@@ -8,7 +8,7 @@
              d:DesignHeight="900" d:DesignWidth="1600">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/imgFondOptions.png"/>
+            <ImageBrush ImageSource="Images/imgFondOptions.png"/>
         </Grid.Background>
         <Label x:Name="labOptions" Content="OPTIONS" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" FontFamily="Algerian" FontSize="72"/>
         <Button x:Name="butDifficileOptions" Content="DIFFICILE" HorizontalAlignment="Left" Margin="158,310,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,1.719" Height="80" Width="240" FontFamily="Algerian" FontSize="24" Background="#FFFF2D2D" Click="butDifficileOptions_Click"/>

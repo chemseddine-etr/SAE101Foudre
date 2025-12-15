@@ -23,16 +23,23 @@ namespace SAE101Foudre
         public GameOverUC()
         {
             InitializeComponent();
+
+            txtScoreGameOver.Text = "Score : " + Jeu.score;
+        }
+
+        private void butMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new MenuAccueil());
+        }
+
+        private void butMenuRejouer_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new Jeu());
         }
 
         private void butQuitterGameOver_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        private void butMenuGameOver_Click(object sender, RoutedEventArgs e)
-        {
-            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new MenuAccueil());
         }
     }
 }
