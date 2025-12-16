@@ -15,7 +15,7 @@
                 <Binding Path="ActualWidth" ElementName="canvasJeu"/>
             </Image.Width>
         </Image>
-        <Image x:Name="imgPerso" Canvas.Top="810" Canvas.Left="800" Height="125" Source="/Images/imgPerso0.png" />
+        <Image x:Name="imgPerso" Height="125" Source="/Images/imgPerso0.png" />
         <TextBlock x:Name="txtScore" Text="Score : 0" FontFamily="Algerian" Canvas.Top="20" Canvas.Left="20" FontSize="50" Padding="80,35" HorizontalAlignment="Left" VerticalAlignment="Center" Width="432">
             <TextBlock.Background>
                 <ImageBrush ImageSource="Images/imgParchemin.png"/>

@@ -365,6 +365,10 @@ namespace SAE101Foudre
             Application.Current.MainWindow.KeyDown += UCJeu_KeyDown;
             Application.Current.MainWindow.KeyUp += UCJeu_KeyUp;
             CreerPluie();
+
+            niveauSol = (int)(canvasJeu.ActualHeight * 0.90);
+            Canvas.SetTop(imgPerso, niveauSol - imgPerso.Height);
+            Canvas.SetLeft(imgPerso, canvasJeu.ActualWidth * 0.50);
         }
     }
 }
