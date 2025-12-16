@@ -26,9 +26,16 @@ namespace SAE101Foudre
         // -----------------------------------------Images----------------------------------------------------
 
         public static BitmapImage imgPerosD = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.png"));
+        public static BitmapImage imgPerosD1 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.1.png"));
+        public static BitmapImage imgPerosD2 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.2.png"));
+        public static BitmapImage imgPerosD3 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.3.png"));
+        public static BitmapImage imgPerosD4 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.4.png"));
         public static BitmapImage imgPersoG = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso1.png"));
 
-        public static BitmapImage imgEclair = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair0.png"));
+        public static BitmapImage imgEclair0 = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair0.png"));
+        public static BitmapImage imgEclair1 = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair1.png"));
+        public static BitmapImage imgEclair2 = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair2.png"));
+        public static BitmapImage imgEclair3 = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair3.png"));
         public static BitmapImage imgBoule = new BitmapImage(new Uri("pack://application:,,,/Images/imgBoule.png"));
 
         public static BitmapImage imgTroll = new BitmapImage(new Uri("pack://application:,,,/Images/imgFondTroll.png"));
@@ -73,6 +80,17 @@ namespace SAE101Foudre
         public Jeu()
         {
             InitializeComponent();
+
+            eclairs.Clear(); // On vide la liste des éclairs précédents
+            boules.Clear();  // On vide la liste des boules précédentes
+            pluie.Clear();   // On vide la pluie (sinon ça va ramer de plus en plus)
+            score = 0;       // On remet le score à 0
+
+            animationMarche = new BitmapImage[] { imgPerosD1, imgPerosD2, imgPerosD3, imgPerosD4 };
+            animationEclair = new BitmapImage[] { imgEclair0, imgEclair1, imgEclair2, imgEclair3 };
+
+
+
             Minuterie();
             Musique(musique, "Sons/tonerre.wav", MenuOptions.VolumeValeur / 100);
             Musique(musique2, "Sons/musique.wav", MenuOptions.VolumeValeur / 100);
@@ -86,6 +104,7 @@ namespace SAE101Foudre
             AppliquerGravite();
             DeplacerObstacle();
             VerifierCollisions();
+            AnimerEclairs();
             AnimerPluie();
             GererScore();
         }
@@ -95,9 +114,17 @@ namespace SAE101Foudre
         private void DeplacerJoueur()
         {
             if (gauche && Canvas.GetLeft(imgPerso) > 0)
+            {
                 Canvas.SetLeft(imgPerso, Canvas.GetLeft(imgPerso) - vitessePerso);
+                AnimerMarche(false);
+            }
+
+
             if (droite && Canvas.GetLeft(imgPerso) + imgPerso.ActualWidth < canvasJeu.ActualWidth)
+            {
                 Canvas.SetLeft(imgPerso, Canvas.GetLeft(imgPerso) + vitessePerso);
+                AnimerMarche(true);
+            }
         }
 
         private void AppliquerGravite()
@@ -128,13 +155,13 @@ namespace SAE101Foudre
             {
                 droite = true;
                 gauche = false;
-                imgPerso.Source = imgPerosD;
+                
             }
             else if (e.Key == Key.Q)
             {
                 gauche = true;
                 droite = false;
-                imgPerso.Source = imgPersoG;
+                
             }
             if (e.Key == Key.Space && auSol == true)
             {
@@ -162,18 +189,104 @@ namespace SAE101Foudre
             }
         }
 
+        // -------------------- Animation du Personnage --------------------
+        // Tableau pour stocker les images de la course
+        private BitmapImage[] animationMarche;
+
+        // Quel numéro d'image affiche-t-on ? (0, 1, 2 ou 3)
+        private int indexImage = 0;
+
+        // Compteur pour ralentir l'animation
+        private int tempsAnim = 0;
+
+        // Vitesse de l'animation (plus c'est bas, plus il court vite). 
+        // 10 signifie "change d'image toutes les 10 frames du jeu"
+        private int vitesseAnim = 8;
+
+        private void AnimerMarche(bool versLaDroite)
+        {
+            // 1. On incrémente le compteur de temps
+            tempsAnim++;
+
+            // 2. Si le temps dépasse la vitesse définie, on change d'image
+            if (tempsAnim >= vitesseAnim)
+            {
+                tempsAnim = 0; // Reset du timer
+                indexImage++;  // Image suivante
+
+                // Si on dépasse la dernière image, on revient à la première (0)
+                if (indexImage >= animationMarche.Length)
+                {
+                    indexImage = 0;
+                }
+
+                // 3. On applique la nouvelle image au contrôle XAML
+                imgPerso.Source = animationMarche[indexImage];
+            }
+
+            // 4. Gestion du miroir (Gauche/Droite)
+            if (versLaDroite)
+            {
+                // Pas de transformation (image normale)
+                imgPerso.RenderTransform = new ScaleTransform(1, 1);
+            }
+            else
+            {
+                // Effet miroir horizontal (flip)
+                // L'origine de la transformation doit être au centre de l'image pour qu'il ne se décale pas
+                imgPerso.RenderTransformOrigin = new Point(0.5, 0.5);
+                imgPerso.RenderTransform = new ScaleTransform(-1, 1);
+            }
+        }
+
+
+        private BitmapImage[] animationEclair;
+        private int indexEclair = 0;
+        private int tempsAnimEclair = 0;
+        private int vitesseAnimEclair = 4;
+
+
+        private void AnimerEclairs()
+        {
+            // 1. Incrémenter le temps
+            tempsAnimEclair++;
+
+            // 2. Si le temps est écoulé, on change de frame
+            if (tempsAnimEclair >= vitesseAnimEclair)
+            {
+                tempsAnimEclair = 0;
+                indexEclair++;
+
+                // Boucler l'animation (0 -> 1 -> 2 -> 3 -> 0 ...)
+                if (indexEclair >= animationEclair.Length)
+                {
+                    indexEclair = 0;
+                }
+
+                // 3. Mettre à jour TOUS les éclairs existants dans la liste
+                foreach (Image eclair in eclairs)
+                {
+                    eclair.Source = animationEclair[indexEclair];
+                }
+            }
+        }
+
         // -----------------------------------------Création Obstacles------------------------------------------------------------
 
         private void CreerEclair()
         {
-            Image nouvelEclair = new Image { Width = 150, Height = 300, Source = imgEclair };
+            // MODIFICATION ICI : On utilise l'image actuelle de l'animation
+            Image nouvelEclair = new Image
+            {
+                Width = 150,
+                Height = 300,
+                Source = animationEclair[indexEclair]
+            };
 
             double positionX = alea.Next(0, (int)canvasJeu.ActualWidth - (int)nouvelEclair.Width);
             Canvas.SetLeft(nouvelEclair, positionX);
             Canvas.SetTop(nouvelEclair, 0 - nouvelEclair.Height);
-
             canvasJeu.Children.Add(nouvelEclair);
-
             eclairs.Add(nouvelEclair);
         }
 
@@ -355,6 +468,7 @@ namespace SAE101Foudre
         private void FinDuJeu()
         {
             gameTimer.Stop();
+            gameTimer.Tick -= GameLoop;
             musique.Stop();
             musique2.Stop();
             ((MainWindow)Application.Current.MainWindow).OuvrirUC(new GameOverUC());

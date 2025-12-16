@@ -26,9 +26,7 @@ namespace SAE101Foudre
         public static int vitesseBoule = 15;
         public static double VolumeValeur = 20.0;
 
-        // mode facile : 75 9 170 12
-        // mode moyen : 65 12 140 15
-        // mode difficile : 50 15 115 15
+        
         public MenuOptions()
         {
             InitializeComponent();
@@ -46,10 +44,10 @@ namespace SAE101Foudre
 
         private void butDifficileOptions_Click(object sender, RoutedEventArgs e)
         {
-            frequenceEclair = 5;
-            vitesseEclair = 25;
-            frequenceBoule = 5;
-            vitesseBoule = 15;
+            frequenceEclair = 30;
+            vitesseEclair = 20;
+            frequenceBoule = 90;
+            vitesseBoule = 18;
             labDifficulteUpdateMoyen.Visibility = Visibility.Hidden;
             labDifficulteUpdateFacile.Visibility = Visibility.Hidden;
             labDifficulteUpdateDifficile.Visibility = Visibility.Visible;
@@ -71,7 +69,7 @@ namespace SAE101Foudre
             frequenceEclair = 75;
             vitesseEclair = 9;
             frequenceBoule = 170;
-            vitesseBoule = 15;
+            vitesseBoule = 12;
             labDifficulteUpdateMoyen.Visibility = Visibility.Hidden;
             labDifficulteUpdateDifficile.Visibility = Visibility.Hidden;
             labDifficulteUpdateFacile.Visibility = Visibility.Visible;
