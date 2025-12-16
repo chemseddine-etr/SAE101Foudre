@@ -35,7 +35,6 @@ namespace SAE101Foudre
             labDifficulteUpdateDifficile.Visibility = Visibility.Hidden;
         }
 
-        //Visibility = Visibility.Hidden; 
 
         private void butRetourOptions_Click(object sender, RoutedEventArgs e)
         {
@@ -44,9 +43,9 @@ namespace SAE101Foudre
 
         private void butDifficileOptions_Click(object sender, RoutedEventArgs e)
         {
-            frequenceEclair = 30;
+            frequenceEclair =25;
             vitesseEclair = 20;
-            frequenceBoule = 90;
+            frequenceBoule = 60;
             vitesseBoule = 18;
             labDifficulteUpdateMoyen.Visibility = Visibility.Hidden;
             labDifficulteUpdateFacile.Visibility = Visibility.Hidden;
@@ -55,9 +54,9 @@ namespace SAE101Foudre
 
         private void butMoyenOptions_Click(object sender, RoutedEventArgs e)
         {
-            frequenceEclair = 65;
+            frequenceEclair = 55;
             vitesseEclair = 12;
-            frequenceBoule = 140;
+            frequenceBoule = 120;
             vitesseBoule = 15;
             labDifficulteUpdateFacile.Visibility = Visibility.Hidden;
             labDifficulteUpdateDifficile.Visibility = Visibility.Hidden;

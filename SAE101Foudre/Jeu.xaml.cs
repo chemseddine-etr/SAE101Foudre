@@ -86,10 +86,10 @@ namespace SAE101Foudre
         {
             InitializeComponent();
 
-            eclairs.Clear(); // On vide la liste des éclairs précédents
-            boules.Clear();  // On vide la liste des boules précédentes
-            pluie.Clear();   // On vide la pluie (sinon ça va ramer de plus en plus)
-            score = 0;       // On remet le score à 0
+            eclairs.Clear(); 
+            boules.Clear();  
+            pluie.Clear();   
+            score = 0;       
 
             animationMarche = new BitmapImage[] { imgPerosD1, imgPerosD2, imgPerosD3, imgPerosD4, imgPerosD5, imgPerosD6, imgPerosD7, imgPerosD8 };
             animationEclair = new BitmapImage[] { imgEclair0, imgEclair1, imgEclair2, imgEclair3 };
@@ -195,80 +195,55 @@ namespace SAE101Foudre
         }
 
         // -------------------- Animation du Personnage --------------------
-        // Tableau pour stocker les images de la course
         private BitmapImage[] animationMarche;
-
-        // Quel numéro d'image affiche-t-on ? (0, 1, 2 ou 3)
         private int indexImage = 0;
-
-        // Compteur pour ralentir l'animation
         private int tempsAnim = 0;
-
-        // Vitesse de l'animation (plus c'est bas, plus il court vite). 
-        // 10 signifie "change d'image toutes les 10 frames du jeu"
         private int vitesseAnim = 4;
 
         private void AnimerMarche(bool versLaDroite)
         {
-            // 1. On incrémente le compteur de temps
             tempsAnim++;
-
-            // 2. Si le temps dépasse la vitesse définie, on change d'image
             if (tempsAnim >= vitesseAnim)
             {
-                tempsAnim = 0; // Reset du timer
-                indexImage++;  // Image suivante
-
-                // Si on dépasse la dernière image, on revient à la première (0)
+                tempsAnim = 0;
+                indexImage++;  
                 if (indexImage >= animationMarche.Length)
                 {
                     indexImage = 0;
                 }
 
-                // 3. On applique la nouvelle image au contrôle XAML
                 imgPerso.Source = animationMarche[indexImage];
             }
 
-            // 4. Gestion du miroir (Gauche/Droite)
             if (versLaDroite)
             {
-                // Pas de transformation (image normale)
                 imgPerso.RenderTransform = new ScaleTransform(1, 1);
             }
             else
             {
-                // Effet miroir horizontal (flip)
-                // L'origine de la transformation doit être au centre de l'image pour qu'il ne se décale pas
                 imgPerso.RenderTransformOrigin = new Point(0.5, 0.5);
                 imgPerso.RenderTransform = new ScaleTransform(-1, 1);
             }
         }
 
 
+        // -------------------- Animation des éclairs --------------------
         private BitmapImage[] animationEclair;
         private int indexEclair = 0;
         private int tempsAnimEclair = 0;
         private int vitesseAnimEclair = 2;
 
-
         private void AnimerEclairs()
         {
-            // 1. Incrémenter le temps
             tempsAnimEclair++;
-
-            // 2. Si le temps est écoulé, on change de frame
             if (tempsAnimEclair >= vitesseAnimEclair)
             {
                 tempsAnimEclair = 0;
                 indexEclair++;
-
-                // Boucler l'animation (0 -> 1 -> 2 -> 3 -> 0 ...)
                 if (indexEclair >= animationEclair.Length)
                 {
                     indexEclair = 0;
                 }
-
-                // 3. Mettre à jour TOUS les éclairs existants dans la liste
                 foreach (Image eclair in eclairs)
                 {
                     eclair.Source = animationEclair[indexEclair];
@@ -280,7 +255,6 @@ namespace SAE101Foudre
 
         private void CreerEclair()
         {
-            // MODIFICATION ICI : On utilise l'image actuelle de l'animation
             Image nouvelEclair = new Image
             {
                 Width = 150,

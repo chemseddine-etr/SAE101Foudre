@@ -20,9 +20,6 @@ namespace SAE101Foudre
     /// </summary>
     public partial class MenuAccueil : UserControl
     {
-        // mode facile : 75 9 170 12
-        // mode moyen : 65 12 140 15
-        // mode difficile : 50 15 115 15
 
         public static int frequenceEclair = MenuOptions.frequenceEclair; //fréquence d'apparition des éclairs (5 = beaucoup)
         public static int vitesseEclair = MenuOptions.vitesseEclair;
