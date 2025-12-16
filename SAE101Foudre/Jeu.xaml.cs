@@ -47,7 +47,7 @@ namespace SAE101Foudre
         public int vitessePerso = 10;
 
         public bool auSol = true;
-        public static int niveauSol = 950;
+        public static int niveauSol;
         public int vitesseVerticale = 0; //vitesse actuelle du personnage
         public static int gravite = 1; //vitesse du personnage qui tombe (1 = lente, 5 = rapide)
         public static int hauteurSaut = -23; //hauteur du saut (-10 = tres bas, -50 = tres haut)
@@ -315,7 +315,7 @@ namespace SAE101Foudre
         private void Minuterie()
         {
             gameTimer.Tick += GameLoop;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(10);
+            gameTimer.Interval = TimeSpan.FromMilliseconds(16);
             gameTimer.Start();
         }
 
