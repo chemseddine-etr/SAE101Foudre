@@ -9,6 +9,7 @@
     <UserControl.Background>
         <ImageBrush ImageSource="/imgFondGameOver.png"/>
     </UserControl.Background>
+
     <Grid x:Name="gridGameOver">
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
