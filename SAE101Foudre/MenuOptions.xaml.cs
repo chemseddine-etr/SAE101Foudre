@@ -20,9 +20,18 @@ namespace SAE101Foudre
     /// </summary>
     public partial class MenuOptions : UserControl
     {
+        public static int frequenceEclair = 65; //fréquence d'apparition des éclairs (5 = beaucoup)
+        public static int vitesseEclair = 12;
+        public static int frequenceBoule = 140; //fréquence d'apparition des boules (5 = beaucoup)
+        public static int vitesseBoule = 15;
+
+        // mode facile : 75 9 170 12
+        // mode moyen : 65 12 140 15
+        // mode difficile : 50 15 115 15
         public MenuOptions()
         {
             InitializeComponent();
+
         }
 
         private void butRetourOptions_Click(object sender, RoutedEventArgs e)
@@ -32,17 +41,26 @@ namespace SAE101Foudre
 
         private void butDifficileOptions_Click(object sender, RoutedEventArgs e)
         {
-
+            frequenceEclair = 50;
+            vitesseEclair = 9;
+            frequenceBoule = 115;
+            vitesseBoule = 15;
         }
 
         private void butMoyenOptions_Click(object sender, RoutedEventArgs e)
         {
-
+            frequenceEclair = 65;
+            vitesseEclair = 12;
+            frequenceBoule = 140;
+            vitesseBoule = 15;
         }
 
         private void butFacileOptions_Click(object sender, RoutedEventArgs e)
         {
-
+            frequenceEclair = 50;
+            vitesseEclair = 9;
+            frequenceBoule = 115;
+            vitesseBoule = 15;
         }
     }
 }

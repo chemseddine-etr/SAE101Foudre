@@ -24,10 +24,10 @@ namespace SAE101Foudre
         // mode moyen : 65 12 140 15
         // mode difficile : 50 15 115 15
 
-        public static int frequenceEclair = 65; //fréquence d'apparition des éclairs (5 = beaucoup)
-        public static int vitesseEclair = 12;
-        public static int frequenceBoule = 140; //fréquence d'apparition des boules (5 = beaucoup)
-        public static int vitesseBoule = 15;
+        public static int frequenceEclair = MenuOptions.frequenceEclair; //fréquence d'apparition des éclairs (5 = beaucoup)
+        public static int vitesseEclair = MenuOptions.vitesseEclair;
+        public static int frequenceBoule = MenuOptions.frequenceBoule; //fréquence d'apparition des boules (5 = beaucoup)
+        public static int vitesseBoule = MenuOptions.vitesseBoule;
 
         public MenuAccueil()
         {
@@ -36,6 +36,7 @@ namespace SAE101Foudre
 
         private void butJouerAcceuil_Click(object sender, RoutedEventArgs e)
         {
+            MettreAJourDifficulte();
             ((MainWindow)Application.Current.MainWindow).OuvrirUC(new Jeu());
         }
 
@@ -48,5 +49,13 @@ namespace SAE101Foudre
         {
             Application.Current.Shutdown();
         }
+
+        private void MettreAJourDifficulte()
+        {
+            frequenceEclair = MenuOptions.frequenceEclair; //fréquence d'apparition des éclairs (5 = beaucoup)
+            vitesseEclair = MenuOptions.vitesseEclair;
+            frequenceBoule = MenuOptions.frequenceBoule; //fréquence d'apparition des boules (5 = beaucoup)
+            vitesseBoule = MenuOptions.vitesseBoule;
+    }
     }
 }
