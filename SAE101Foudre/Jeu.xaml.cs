@@ -315,7 +315,7 @@ namespace SAE101Foudre
         private void Minuterie()
         {
             gameTimer.Tick += GameLoop;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(8.33);
+            gameTimer.Interval = TimeSpan.FromMilliseconds(10);
             gameTimer.Start();
         }
 
@@ -344,7 +344,7 @@ namespace SAE101Foudre
         private void GererScore()
         {
             compteurTempsScore++;
-            if (compteurTempsScore >= 120)
+            if (compteurTempsScore >= 60)
             {
                 score = score + 10;
                 txtScore.Text = "Score : " + score;
