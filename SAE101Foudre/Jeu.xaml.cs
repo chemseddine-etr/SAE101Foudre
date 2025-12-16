@@ -30,12 +30,17 @@ namespace SAE101Foudre
         public static BitmapImage imgPerosD2 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.2.png"));
         public static BitmapImage imgPerosD3 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.3.png"));
         public static BitmapImage imgPerosD4 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.4.png"));
+        public static BitmapImage imgPerosD5 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.5.png"));
+        public static BitmapImage imgPerosD6 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.6.png"));
+        public static BitmapImage imgPerosD7 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.7.png"));
+        public static BitmapImage imgPerosD8 = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso0.8.png"));
         public static BitmapImage imgPersoG = new BitmapImage(new Uri("pack://application:,,,/Images/imgPerso1.png"));
 
         public static BitmapImage imgEclair0 = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair0.png"));
         public static BitmapImage imgEclair1 = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair1.png"));
         public static BitmapImage imgEclair2 = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair2.png"));
         public static BitmapImage imgEclair3 = new BitmapImage(new Uri("pack://application:,,,/Images/imgEclair3.png"));
+
         public static BitmapImage imgBoule = new BitmapImage(new Uri("pack://application:,,,/Images/imgBoule.png"));
 
         public static BitmapImage imgTroll = new BitmapImage(new Uri("pack://application:,,,/Images/imgFondTroll.png"));
@@ -86,7 +91,7 @@ namespace SAE101Foudre
             pluie.Clear();   // On vide la pluie (sinon ça va ramer de plus en plus)
             score = 0;       // On remet le score à 0
 
-            animationMarche = new BitmapImage[] { imgPerosD1, imgPerosD2, imgPerosD3, imgPerosD4 };
+            animationMarche = new BitmapImage[] { imgPerosD1, imgPerosD2, imgPerosD3, imgPerosD4, imgPerosD5, imgPerosD6, imgPerosD7, imgPerosD8 };
             animationEclair = new BitmapImage[] { imgEclair0, imgEclair1, imgEclair2, imgEclair3 };
 
 
@@ -201,7 +206,7 @@ namespace SAE101Foudre
 
         // Vitesse de l'animation (plus c'est bas, plus il court vite). 
         // 10 signifie "change d'image toutes les 10 frames du jeu"
-        private int vitesseAnim = 8;
+        private int vitesseAnim = 4;
 
         private void AnimerMarche(bool versLaDroite)
         {
@@ -243,7 +248,7 @@ namespace SAE101Foudre
         private BitmapImage[] animationEclair;
         private int indexEclair = 0;
         private int tempsAnimEclair = 0;
-        private int vitesseAnimEclair = 4;
+        private int vitesseAnimEclair = 2;
 
 
         private void AnimerEclairs()
