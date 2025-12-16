@@ -74,8 +74,8 @@ namespace SAE101Foudre
         {
             InitializeComponent();
             Minuterie();
-            Musique(musique, "Sons/tonerre.wav");
-            Musique(musique2, "Sons/musique.wav");
+            Musique(musique, "Sons/tonerre.wav", MenuOptions.VolumeValeur / 100);
+            Musique(musique2, "Sons/musique.wav", MenuOptions.VolumeValeur / 100);
         }
 
         // -------------------------------------------Boucle de jeu----------------------------------------------------
@@ -199,7 +199,7 @@ namespace SAE101Foudre
             if (alea.Next(0, frequenceEclair) == 0)
             {
                 CreerEclair();
-                JouerSon("eclair.wav", 0.2);
+                JouerSon("eclair.wav", MenuOptions.VolumeValeur/100);
             }
             if (alea.Next(0, frequenceBoule) == 0)
             {
@@ -319,8 +319,9 @@ namespace SAE101Foudre
             gameTimer.Start();
         }
 
-        public void Musique(MediaPlayer mp, string son)
+        public void Musique(MediaPlayer mp, string son, double volume)
         {
+            mp.Volume = volume;
             mp.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + son));
             mp.MediaEnded += RelancerMusique;
             mp.Play();

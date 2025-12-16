@@ -24,6 +24,7 @@ namespace SAE101Foudre
         public static int vitesseEclair = 12;
         public static int frequenceBoule = 140; //fréquence d'apparition des boules (5 = beaucoup)
         public static int vitesseBoule = 15;
+        public static double VolumeValeur = 20.0;
 
         // mode facile : 75 9 170 12
         // mode moyen : 65 12 140 15
@@ -31,8 +32,12 @@ namespace SAE101Foudre
         public MenuOptions()
         {
             InitializeComponent();
-
+            labDifficulteUpdateMoyen.Visibility = Visibility.Hidden;
+            labDifficulteUpdateFacile.Visibility = Visibility.Hidden;
+            labDifficulteUpdateDifficile.Visibility = Visibility.Hidden;
         }
+
+        //Visibility = Visibility.Hidden; 
 
         private void butRetourOptions_Click(object sender, RoutedEventArgs e)
         {
@@ -41,10 +46,13 @@ namespace SAE101Foudre
 
         private void butDifficileOptions_Click(object sender, RoutedEventArgs e)
         {
-            frequenceEclair = 50;
-            vitesseEclair = 9;
-            frequenceBoule = 115;
+            frequenceEclair = 5;
+            vitesseEclair = 25;
+            frequenceBoule = 5;
             vitesseBoule = 15;
+            labDifficulteUpdateMoyen.Visibility = Visibility.Hidden;
+            labDifficulteUpdateFacile.Visibility = Visibility.Hidden;
+            labDifficulteUpdateDifficile.Visibility = Visibility.Visible;
         }
 
         private void butMoyenOptions_Click(object sender, RoutedEventArgs e)
@@ -53,14 +61,26 @@ namespace SAE101Foudre
             vitesseEclair = 12;
             frequenceBoule = 140;
             vitesseBoule = 15;
+            labDifficulteUpdateFacile.Visibility = Visibility.Hidden;
+            labDifficulteUpdateDifficile.Visibility = Visibility.Hidden;
+            labDifficulteUpdateMoyen.Visibility = Visibility.Visible;
         }
 
         private void butFacileOptions_Click(object sender, RoutedEventArgs e)
         {
-            frequenceEclair = 50;
+            frequenceEclair = 75;
             vitesseEclair = 9;
-            frequenceBoule = 115;
+            frequenceBoule = 170;
             vitesseBoule = 15;
+            labDifficulteUpdateMoyen.Visibility = Visibility.Hidden;
+            labDifficulteUpdateDifficile.Visibility = Visibility.Hidden;
+            labDifficulteUpdateFacile.Visibility = Visibility.Visible;
+        }
+
+        private void sliderVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            VolumeValeur = Math.Round(sliderVolume.Value, 0);
+            labVolumeValue.Content = $"{VolumeValeur}%";
         }
     }
 }

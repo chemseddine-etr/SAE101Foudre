@@ -28,6 +28,7 @@ namespace SAE101Foudre
         public static int vitesseEclair = MenuOptions.vitesseEclair;
         public static int frequenceBoule = MenuOptions.frequenceBoule; //fréquence d'apparition des boules (5 = beaucoup)
         public static int vitesseBoule = MenuOptions.vitesseBoule;
+        public static double volumeAudio = MenuOptions.VolumeValeur;
 
         public MenuAccueil()
         {
@@ -37,6 +38,7 @@ namespace SAE101Foudre
         private void butJouerAcceuil_Click(object sender, RoutedEventArgs e)
         {
             MettreAJourDifficulte();
+            MettreAJourVolume();
             ((MainWindow)Application.Current.MainWindow).OuvrirUC(new Jeu());
         }
 
@@ -56,6 +58,12 @@ namespace SAE101Foudre
             vitesseEclair = MenuOptions.vitesseEclair;
             frequenceBoule = MenuOptions.frequenceBoule; //fréquence d'apparition des boules (5 = beaucoup)
             vitesseBoule = MenuOptions.vitesseBoule;
-    }
+        }
+
+        private void MettreAJourVolume()
+        {
+            volumeAudio = MenuOptions.VolumeValeur;
+        }
+
     }
 }

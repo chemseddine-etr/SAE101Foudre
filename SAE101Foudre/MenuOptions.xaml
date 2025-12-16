@@ -16,6 +16,12 @@
         <Button x:Name="butFacileOptions" Content="FACILE" HorizontalAlignment="Left" Margin="158,490,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.027,0.989" Height="80" Width="240" FontFamily="Algerian" FontSize="24" Background="#FF17FF0F" Click="butFacileOptions_Click"/>
         <Label x:Name="labDifficluteOptions" Content="DIFICULTE" HorizontalAlignment="Left" Margin="152,233,0,0" VerticalAlignment="Top" Height="72" Width="252" FontSize="48" FontFamily="Algerian"/>
         <Button x:Name="butRetourOptions" Content="RETOUR" HorizontalAlignment="Center" Margin="0,676,0,0" VerticalAlignment="Top" FontFamily="Algerian" FontSize="24" Height="80" Width="240" Click="butRetourOptions_Click"/>
-
+        <Label x:Name="labDifficulteUpdateFacile" Content="DIFICULTE SELECTIONNEE : FACILE" HorizontalAlignment="Center" Margin="0,611,0,0" VerticalAlignment="Top" Height="72" Width="884" FontSize="48" FontFamily="Algerian" RenderTransformOrigin="0.507,0.556"/>
+        <Label x:Name="labDifficulteUpdateMoyen" Content="DIFICULTE SELECTIONNEE : MOYEN" HorizontalAlignment="Center" Margin="0,611,0,0" VerticalAlignment="Top" Height="72" Width="884" FontSize="48" FontFamily="Algerian" RenderTransformOrigin="0.507,0.556"/>
+        <Label x:Name="labDifficulteUpdateDifficile" Content="DIFICULTE SELECTIONNEE : DIFFICILE" HorizontalAlignment="Center" Margin="0,611,0,0" VerticalAlignment="Top" Height="72" Width="884" FontSize="48" FontFamily="Algerian" RenderTransformOrigin="0.507,0.556"/>
+        <Label x:Name="labVolumeOptions" Content="VOLUME AUDIO" Margin="1105,252,0,0" VerticalAlignment="Top" Height="72" FontSize="48" FontFamily="Algerian" HorizontalAlignment="Left" Width="344"/>
+        
+        <Label x:Name="labVolumeValue" Content="20%" Margin="1241,415,0,0" VerticalAlignment="Top" Height="52" FontSize="30" FontFamily="Algerian" HorizontalAlignment="Left" Width="72"/>
+        <Slider x:Name="sliderVolume" HorizontalAlignment="Left" Margin="1077,367,0,0" VerticalAlignment="Top" Width="400" Maximum="100" Height="18" ValueChanged="sliderVolume_ValueChanged" Value="20"/>
     </Grid>
 </UserControl>
