@@ -60,7 +60,7 @@ namespace SAE101Foudre
 
         private int indexImage = 0;
         private int tempsAnim = 0;
-        private int vitesseAnim = 4;
+        private int vitesseAnim = 6;
 
         private int indexEclair = 0;
         private int tempsAnimEclair = 0;
@@ -317,7 +317,7 @@ namespace SAE101Foudre
             }
         }
 
-        // ---------------------------------------------------------------------------------------------------------
+        // ---------------------------------------------------Autres Méthodes---------------------------------------------
 
         private void CreerPluie()
         {
@@ -392,6 +392,7 @@ namespace SAE101Foudre
         {
             Application.Current.MainWindow.KeyDown += UCJeu_KeyDown;
             Application.Current.MainWindow.KeyUp += UCJeu_KeyUp;
+
             CreerPluie();
 
             niveauSol = (int)(canvasJeu.ActualHeight * 0.90);
