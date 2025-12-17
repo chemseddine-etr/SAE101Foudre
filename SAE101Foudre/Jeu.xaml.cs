@@ -82,19 +82,24 @@ namespace SAE101Foudre
         public static int score = 0;
         public int compteurTempsScore = 0;
 
+        private BitmapImage[] animationMarche;
+        private int indexImage = 0;
+        private int tempsAnim = 0;
+        private int vitesseAnim = 4;
+
+        private BitmapImage[] animationEclair;
+        private int indexEclair = 0;
+        private int tempsAnimEclair = 0;
+        private int vitesseAnimEclair = 2;
+
         public Jeu()
         {
             InitializeComponent();
 
-            eclairs.Clear(); 
-            boules.Clear();  
-            pluie.Clear();   
             score = 0;       
 
             animationMarche = new BitmapImage[] { imgPerosD1, imgPerosD2, imgPerosD3, imgPerosD4, imgPerosD5, imgPerosD6, imgPerosD7, imgPerosD8 };
             animationEclair = new BitmapImage[] { imgEclair0, imgEclair1, imgEclair2, imgEclair3 };
-
-
 
             Minuterie();
             Musique(musique, "Sons/tonerre.wav", MenuOptions.VolumeValeur / 100);
@@ -194,12 +199,6 @@ namespace SAE101Foudre
             }
         }
 
-        // -------------------- Animation du Personnage --------------------
-        private BitmapImage[] animationMarche;
-        private int indexImage = 0;
-        private int tempsAnim = 0;
-        private int vitesseAnim = 4;
-
         private void AnimerMarche(bool versLaDroite)
         {
             tempsAnim++;
@@ -225,13 +224,6 @@ namespace SAE101Foudre
                 imgPerso.RenderTransform = new ScaleTransform(-1, 1);
             }
         }
-
-
-        // -------------------- Animation des éclairs --------------------
-        private BitmapImage[] animationEclair;
-        private int indexEclair = 0;
-        private int tempsAnimEclair = 0;
-        private int vitesseAnimEclair = 2;
 
         private void AnimerEclairs()
         {

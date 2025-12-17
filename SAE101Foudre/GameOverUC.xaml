@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:SAE101Foudre"
              mc:Ignorable="d" d:DesignHeight="1080" d:DesignWidth="1920">
     <UserControl.Background>
-        <ImageBrush ImageSource="Images/imgFondGameOver.png"/>
+        <ImageBrush ImageSource="/Images/imgFondGameOver.png"/>
     </UserControl.Background>
 
     <Grid x:Name="gridGameOver">

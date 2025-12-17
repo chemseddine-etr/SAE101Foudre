@@ -26,7 +26,6 @@
     <None Remove="Images\imgPerso0.6.png" />
     <None Remove="Images\imgPerso0.7.png" />
     <None Remove="Images\imgPerso0.8.png" />
-    <None Remove="imgFondGameOver.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,7 +57,6 @@
     <Resource Include="Images\imgPerso0.png" />
     <Resource Include="Images\imgPerso1.png" />
     <Resource Include="Images\imgSol.png" />
-    <Resource Include="imgFondGameOver.png" />
   </ItemGroup>
 
   <ItemGroup>
