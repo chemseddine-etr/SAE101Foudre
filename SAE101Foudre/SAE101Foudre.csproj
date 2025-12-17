@@ -29,15 +29,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\imgEclair1.png" />
-    <Resource Include="Images\imgEclair2.png" />
-    <Resource Include="Images\imgEclair3.png" />
+    <Resource Include="SpritesEclair\imgEclair1.png" />
+    <Resource Include="SpritesEclair\imgEclair2.png" />
+    <Resource Include="SpritesEclair\imgEclair3.png" />
     <Resource Include="Images\imgLogoCarre-_1_.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\imgBoule.png" />
-    <Resource Include="Images\imgEclair0.png" />
+    <Resource Include="SpritesEclair\imgEclair0.png" />
     <Resource Include="Images\imgFond.jpeg" />
     <Resource Include="Images\imgFondAcceuil.png" />
     <Resource Include="Images\imgFondGameOver.png" />
@@ -46,14 +46,14 @@
     <Resource Include="Images\imgGameOver.png" />
     <Resource Include="Images\imgLogoAcceuil.png" />
     <Resource Include="Images\imgParchemin.png" />
-    <Resource Include="Images\imgPerso0.1.png" />
-    <Resource Include="Images\imgPerso0.2.png" />
-    <Resource Include="Images\imgPerso0.3.png" />
-    <Resource Include="Images\imgPerso0.4.png" />
-    <Resource Include="Images\imgPerso0.5.png" />
-    <Resource Include="Images\imgPerso0.6.png" />
-    <Resource Include="Images\imgPerso0.7.png" />
-    <Resource Include="Images\imgPerso0.8.png" />
+    <Resource Include="SpritesPerso\imgPerso0.1.png" />
+    <Resource Include="SpritesPerso\imgPerso0.2.png" />
+    <Resource Include="SpritesPerso\imgPerso0.3.png" />
+    <Resource Include="SpritesPerso\imgPerso0.4.png" />
+    <Resource Include="SpritesPerso\imgPerso0.5.png" />
+    <Resource Include="SpritesPerso\imgPerso0.6.png" />
+    <Resource Include="SpritesPerso\imgPerso0.7.png" />
+    <Resource Include="SpritesPerso\imgPerso0.8.png" />
     <Resource Include="Images\imgPerso0.png" />
     <Resource Include="Images\imgPerso1.png" />
     <Resource Include="Images\imgSol.png" />
