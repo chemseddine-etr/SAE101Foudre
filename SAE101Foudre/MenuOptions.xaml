@@ -6,19 +6,23 @@
              xmlns:local="clr-namespace:SAE101Foudre"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Background>
+        <ImageBrush ImageSource="/Images/imgFondOptions.png"/>
+    </UserControl.Background>
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/imgFondOptions.png"/>
-        </Grid.Background>
-        <Label x:Name="labOptions" Content="OPTIONS" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" FontFamily="Algerian" FontSize="72"/>
-        <Label x:Name="labDifficluteOptions" Content="DIFICULTE" HorizontalAlignment="Left" Margin="152,233,0,0" VerticalAlignment="Top" Height="72" Width="252" FontSize="48" FontFamily="Algerian"/>
-        <Button x:Name="butRetourOptions" Content="RETOUR" HorizontalAlignment="Center" Margin="0,676,0,0" VerticalAlignment="Top" FontFamily="Algerian" FontSize="24" Height="80" Width="240" Click="butRetourOptions_Click"/>
-        <Label x:Name="labDifficulteUpdateFacile" Content="DIFICULTE SELECTIONNEE : FACILE" HorizontalAlignment="Center" Margin="0,611,0,0" VerticalAlignment="Top" Height="72" Width="884" FontSize="48" FontFamily="Algerian" RenderTransformOrigin="0.507,0.556"/>
-        <Label x:Name="labDifficulteUpdateMoyen" Content="DIFICULTE SELECTIONNEE : MOYEN" HorizontalAlignment="Center" Margin="0,611,0,0" VerticalAlignment="Top" Height="72" Width="884" FontSize="48" FontFamily="Algerian" RenderTransformOrigin="0.507,0.556"/>
-        <Label x:Name="labDifficulteUpdateDifficile" Content="DIFICULTE SELECTIONNEE : DIFFICILE" HorizontalAlignment="Center" Margin="0,611,0,0" VerticalAlignment="Top" Height="72" Width="884" FontSize="48" FontFamily="Algerian" RenderTransformOrigin="0.507,0.556"/>
-        <Label x:Name="labVolumeOptions" Content="VOLUME AUDIO" Margin="1105,252,0,0" VerticalAlignment="Top" Height="72" FontSize="48" FontFamily="Algerian" HorizontalAlignment="Left" Width="344"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label x:Name="labOptions" Content="OPTIONS" HorizontalAlignment="Center" FontFamily="Algerian" FontSize="72" Margin="0,0,0,100"/>        
+            
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labVolumeOptions" Content="VOLUME AUDIO" Height="72" FontSize="48" FontFamily="Algerian" Width="344" Margin="0,0,200,0"/>
+                <StackPanel>
+                    <Label x:Name="labVolumeValue" Content="20%" Height="52" FontSize="30" FontFamily="Algerian" Width="72"/>
+                    <Slider x:Name="sliderVolume" Width="400" Maximum="100" Height="30" ValueChanged="sliderVolume_ValueChanged" Value="20"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Button x:Name="butRetourOptions" Content="RETOUR" HorizontalAlignment="Center"  FontFamily="Algerian" FontSize="24" Height="80" Width="240" Click="butRetourOptions_Click" Margin="0,100,0,0"/>
+        </StackPanel>
         
-        <Label x:Name="labVolumeValue" Content="20%" Margin="1241,415,0,0" VerticalAlignment="Top" Height="52" FontSize="30" FontFamily="Algerian" HorizontalAlignment="Left" Width="72"/>
-        <Slider x:Name="sliderVolume" HorizontalAlignment="Left" Margin="1077,367,0,0" VerticalAlignment="Top" Width="400" Maximum="100" Height="18" ValueChanged="sliderVolume_ValueChanged" Value="20"/>
-    </Grid>
+        </Grid>
 </UserControl>

@@ -26,11 +26,7 @@ namespace SAE101Foudre
         public MenuOptions()
         {
             InitializeComponent();
-            labDifficulteUpdateMoyen.Visibility = Visibility.Hidden;
-            labDifficulteUpdateFacile.Visibility = Visibility.Hidden;
-            labDifficulteUpdateDifficile.Visibility = Visibility.Hidden;
         }
-
 
         private void butRetourOptions_Click(object sender, RoutedEventArgs e)
         {

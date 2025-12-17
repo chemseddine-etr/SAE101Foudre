@@ -191,10 +191,12 @@ namespace SAE101Foudre
             if (e.Key == Key.D)
             {
                 droite = false;
+                imgPerso.Source = imgPerosD;
             }
             else if (e.Key == Key.Q)
             {
                 gauche = false;
+                imgPerso.Source = imgPerosD;
             }
         }
 
