@@ -13,13 +13,13 @@
     <Grid x:Name="gridGameOver">
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Height="300" Width="1000" Source="/Images/imgGameOver.png" Stretch="Fill"/>
-            <TextBlock x:Name="txtScoreGameOver" Text="Score :" FontFamily="Algerian" Canvas.Top="20" Canvas.Left="20" FontSize="50" Padding="80,35" HorizontalAlignment="Center" VerticalAlignment="Center" Width="432" Margin="0,40,0,0">
+            <Image Height="300" Width="1000" Source="/Images/imgGameOver.png"/>
+            <TextBlock x:Name="txtScoreGameOver" Text="Score :" FontFamily="Algerian" FontSize="50" Padding="80,35" Width="432" Margin="0,40,0,0">
                 <TextBlock.Background>
                     <ImageBrush ImageSource="Images/imgParchemin.png"/>
                 </TextBlock.Background>
             </TextBlock>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,0">
                 <Button x:Name="butMenuGameOver" Content="MENU" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FF0082A0" Click="butMenu_Click" Margin="0,0,150,0"/>
                 <Button x:Name="butMenuRejouer" Content="REJOUER" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FF00A044" Click="butMenuRejouer_Click" Margin="0,0,150,0"/>
                 <Button x:Name="butQuitterGameOver" Content="QUITTER" Width="140" Height="40" FontFamily="Algerian" FontSize="18" Background="#FFFF2D2D" Click="butQuitterGameOver_Click"/>

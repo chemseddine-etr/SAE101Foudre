@@ -16,7 +16,7 @@
             <StackPanel Orientation="Horizontal" Margin="0,0,0,50">
                 <Label x:Name="labVolumeOptions" Content="VOLUME AUDIO" Height="72" FontSize="48" FontFamily="Algerian" Width="344" Margin="0,0,200,0"/>
                 <StackPanel>
-                    <Label x:Name="labVolumeValue" Content="20%" Height="52" FontSize="30" FontFamily="Algerian" Width="72"/>
+                    <Label x:Name="labVolumeValue" Content="20 %" Height="52" FontSize="30" FontFamily="Algerian" Width="72"/>
                     <Slider x:Name="sliderVolume" Width="400" Maximum="100" Height="30" ValueChanged="sliderVolume_ValueChanged" Value="20"/>
                 </StackPanel>
             </StackPanel>
@@ -24,16 +24,13 @@
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="labControles" Content="CONTRÔLES" Height="72" FontSize="48" FontFamily="Algerian" Width="344" Margin="0,0,200,0"/>
                 <StackPanel>
-                    <Button x:Name="butGauche" Content="GAUCHE : Q" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
-                    Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
-                    <Button x:Name="butDroit" Content="DROITE : D" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
-                    Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
-                    <Button x:Name="butSaut" Content="SAUT : Space" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
-                    Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
+                    <Button x:Name="butGauche" Content="GAUCHE : Q" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5" Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
+                    <Button x:Name="butDroit" Content="DROITE : D" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5" Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
+                    <Button x:Name="butSaut" Content="SAUT : Space" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5" Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
                 </StackPanel>
             </StackPanel>
 
-            <Button x:Name="butRetourOptions" Content="RETOUR" HorizontalAlignment="Center"  FontFamily="Algerian" FontSize="24" Height="80" Width="240" Click="butRetourOptions_Click" Margin="0,100,0,0"/>
+            <Button x:Name="butRetourOptions" Content="RETOUR" HorizontalAlignment="Center" FontFamily="Algerian" FontSize="24" Height="80" Width="240" Click="butRetourOptions_Click" Margin="0,100,0,0"/>
         </StackPanel>
         
     </Grid>

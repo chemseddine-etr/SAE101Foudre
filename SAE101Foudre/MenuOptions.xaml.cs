@@ -22,7 +22,7 @@ namespace SAE101Foudre
     {
         public static Key toucheDroit = Key.D;
         public static Key toucheGauche = Key.Q;
-        public static Key toucheSauter = Key.Space;
+        public static Key toucheSaut = Key.Space;
         public static double VolumeValeur = 20.0;
 
         private Button boutonActif = null;
@@ -33,7 +33,7 @@ namespace SAE101Foudre
             MettreAJourTextes();
         }
 
-        private void sliderVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void sliderVolume_ValueChanged(object sender, RoutedEventArgs e)
         {
             VolumeValeur = Math.Round(sliderVolume.Value, 0);
             labVolumeValue.Content = $"{VolumeValeur}%";
@@ -43,7 +43,7 @@ namespace SAE101Foudre
         {
             butGauche.Content = "GAUCHE : " + toucheGauche.ToString();
             butDroit.Content = "DROITE : " + toucheDroit.ToString();
-            butSaut.Content = "SAUT : " + toucheSauter.ToString();
+            butSaut.Content = "SAUT : " + toucheSaut.ToString();
         }
 
         private void ButConfig_Click(object sender, RoutedEventArgs e)
@@ -55,7 +55,6 @@ namespace SAE101Foudre
 
         private void ButConfig_KeyDown(object sender, KeyEventArgs e)
         {
-
             e.Handled = true;
             Key nouvelleTouche = e.Key;
 
@@ -69,7 +68,7 @@ namespace SAE101Foudre
             }
             else if (boutonActif == butSaut)
             {
-                toucheSauter = nouvelleTouche;
+                toucheSaut = nouvelleTouche;
             }
 
             boutonActif = null;

@@ -33,7 +33,7 @@ namespace SAE101Foudre
 
         public bool droite = false;
         public bool gauche = false;
-        public int vitessePerso = 10;
+        public int vitessePerso = 12;
 
         public bool auSol = true;
         public static int niveauSol;
@@ -106,7 +106,6 @@ namespace SAE101Foudre
                 AnimerMarche(false);
             }
 
-
             if (droite && Canvas.GetLeft(imgPerso) + imgPerso.ActualWidth < canvasJeu.ActualWidth)
             {
                 Canvas.SetLeft(imgPerso, Canvas.GetLeft(imgPerso) + vitessePerso);
@@ -143,8 +142,6 @@ namespace SAE101Foudre
                 BasculerPause();
             }
 
-            if (estEnPause) return;
-
             if (e.Key == MenuOptions.toucheDroit)
             {
                 droite = true;
@@ -155,7 +152,8 @@ namespace SAE101Foudre
                 gauche = true;
                 droite = false;
             }
-            if (e.Key == MenuOptions.toucheSauter && auSol == true)
+
+            if (e.Key == MenuOptions.toucheSaut && auSol == true)
             {
                 vitesseVerticale = hauteurSaut;
                 auSol = false;
@@ -163,7 +161,7 @@ namespace SAE101Foudre
 
             if (e.Key == Key.T)
             {
-                imgFond.ImageSource = Ressources.FondTroll;
+                imgFond.ImageSource = Ressources.fondTroll;
             }
 
         }
@@ -173,12 +171,12 @@ namespace SAE101Foudre
             if (e.Key == MenuOptions.toucheDroit)
             {
                 droite = false;
-                imgPerso.Source = Ressources.PersoDroit;
+                imgPerso.Source = Ressources.persoDroit;
             }
             else if (e.Key == MenuOptions.toucheGauche)
             {
                 gauche = false;
-                imgPerso.Source = Ressources.PersoDroit;
+                imgPerso.Source = Ressources.persoDroit;
             }
         }
 
@@ -217,10 +215,10 @@ namespace SAE101Foudre
 
         private void SliderPauseVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (labPauseVolumeValue != null)
+            if (labPauseVolumeVal != null)
             {
                 MenuOptions.VolumeValeur = Math.Round(sliderPauseVolume.Value, 0);
-                labPauseVolumeValue.Content = $"{MenuOptions.VolumeValeur}%";
+                labPauseVolumeVal.Content = $"{MenuOptions.VolumeValeur}%";
 
                 Audio.ChangerVolume(MenuOptions.VolumeValeur);
             }
@@ -235,12 +233,12 @@ namespace SAE101Foudre
             {
                 tempsAnim = 0;
                 indexImage++;  
-                if (indexImage >= Ressources.SpritesPerso.Length)
+                if (indexImage >= Ressources.spritesPerso.Length)
                 {
                     indexImage = 0;
                 }
 
-                imgPerso.Source = Ressources.SpritesPerso[indexImage];
+                imgPerso.Source = Ressources.spritesPerso[indexImage];
             }
 
             if (versLaDroite)
@@ -261,13 +259,13 @@ namespace SAE101Foudre
             {
                 tempsAnimEclair = 0;
                 indexEclair++;
-                if (indexEclair >= Ressources.SpritesEclair.Length)
+                if (indexEclair >= Ressources.spritesEclair.Length)
                 {
                     indexEclair = 0;
                 }
                 foreach (Image eclair in eclairs)
                 {
-                    eclair.Source = Ressources.SpritesEclair[indexEclair];
+                    eclair.Source = Ressources.spritesEclair[indexEclair];
                 }
             }
         }
@@ -280,13 +278,15 @@ namespace SAE101Foudre
             {
                 Width = 150,
                 Height = 300,
-                Source = Ressources.SpritesEclair[indexEclair]
+                Source = Ressources.spritesEclair[indexEclair]
             };
 
             double positionX = alea.Next(0, (int)canvasJeu.ActualWidth - (int)nouvelEclair.Width);
             Canvas.SetLeft(nouvelEclair, positionX);
             Canvas.SetTop(nouvelEclair, 0 - nouvelEclair.Height);
+
             canvasJeu.Children.Add(nouvelEclair);
+
             eclairs.Add(nouvelEclair);
         }
 
@@ -296,7 +296,7 @@ namespace SAE101Foudre
             {
                 Width = 100,
                 Height = 200,
-                Source = Ressources.Boule
+                Source = Ressources.boule
             };
 
             Canvas.SetLeft(nouvelleBoule, 0 - nouvelleBoule.Width);
@@ -349,20 +349,22 @@ namespace SAE101Foudre
         }
         private void VerifierCollisions()
         {
-            int valHit = 50;
-            Rect boxJoueur = new Rect(Canvas.GetLeft(imgPerso) + valHit, Canvas.GetTop(imgPerso) + valHit, imgPerso.ActualWidth - valHit, imgPerso.ActualHeight - valHit);
+            int fixValeurHitbox = 50;
+            Rect boxJoueur = new Rect(Canvas.GetLeft(imgPerso) + fixValeurHitbox, Canvas.GetTop(imgPerso) + fixValeurHitbox, imgPerso.ActualWidth - fixValeurHitbox, imgPerso.ActualHeight - fixValeurHitbox);
+
             foreach (Image eclair in eclairs)
             {
-                Rect boxEclair = new Rect(Canvas.GetLeft(eclair) + valHit, Canvas.GetTop(eclair) + valHit, eclair.Width - valHit, eclair.Height - valHit);
+                Rect boxEclair = new Rect(Canvas.GetLeft(eclair) + fixValeurHitbox, Canvas.GetTop(eclair) + fixValeurHitbox, eclair.Width - fixValeurHitbox, eclair.Height - fixValeurHitbox);
                 if (boxJoueur.IntersectsWith(boxEclair))
                 {
                     FinDuJeu();
                     return;
                 }
             }
+
             foreach (Image boule in boules)
             {
-                Rect boxBoule = new Rect(Canvas.GetLeft(boule) + valHit, Canvas.GetTop(boule) + valHit, boule.Width - valHit, boule.Height - valHit);
+                Rect boxBoule = new Rect(Canvas.GetLeft(boule) + fixValeurHitbox, Canvas.GetTop(boule) + fixValeurHitbox, boule.Width - fixValeurHitbox, boule.Height - fixValeurHitbox);
                 if (boxJoueur.IntersectsWith(boxBoule))
                 {
                     FinDuJeu();
@@ -444,10 +446,10 @@ namespace SAE101Foudre
 
         private void UCJeu_Loaded(object sender, RoutedEventArgs e)
         {
+            CreerPluie();
+
             Application.Current.MainWindow.KeyDown += UCJeu_KeyDown;
             Application.Current.MainWindow.KeyUp += UCJeu_KeyUp;
-
-            CreerPluie();
 
             niveauSol = (int)(canvasJeu.ActualHeight * 0.90);
             Canvas.SetTop(imgPerso, niveauSol - imgPerso.Height);

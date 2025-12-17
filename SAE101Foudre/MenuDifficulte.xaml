@@ -11,7 +11,7 @@
     </UserControl.Background>
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label x:Name="labDifficulte" Content="SELECTIONNEZ UNE DIFFICULTE" FontFamily="Algerian" FontSize="100" Foreground="Wheat" HorizontalAlignment="Center"/>
+            <Label x:Name="labDifficulte" Content="SELECTIONNEZ UNE DIFFICULTE" FontFamily="Algerian" FontSize="100" Foreground="Wheat"/>
             <StackPanel Orientation="Horizontal" Margin="0,150,0,150" HorizontalAlignment="Center">
                 <Button x:Name="butFacile" Content="FACILE" Width="300" Height="80" FontFamily="Algerian" FontSize="40" Background="ForestGreen" Margin="0,0,150,0" Click="butFacile_Click"/>
                 <Button x:Name="butMoyen" Content="MOYEN" Width="300" Height="80" FontFamily="Algerian" FontSize="40" Background="#FFEFEF23" Margin="0,0,150,0" Click="butMoyen_Click"/>
