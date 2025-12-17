@@ -94,7 +94,9 @@ namespace SAE101Foudre
         public Jeu()
         {
             InitializeComponent();
-
+            eclairs.Clear();
+            boules.Clear();  
+            pluie.Clear();   
             score = 0;       
 
             animationMarche = new BitmapImage[] { imgPerosD1, imgPerosD2, imgPerosD3, imgPerosD4, imgPerosD5, imgPerosD6, imgPerosD7, imgPerosD8 };
