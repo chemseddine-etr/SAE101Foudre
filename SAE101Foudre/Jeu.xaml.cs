@@ -66,6 +66,8 @@ namespace SAE101Foudre
         private int tempsAnimEclair = 0;
         private int vitesseAnimEclair = 2;
 
+        private bool estEnPause = false;
+
         public Jeu()
         {
             InitializeComponent();
@@ -75,8 +77,9 @@ namespace SAE101Foudre
             pluie.Clear();
             score = 0;
 
-            Minuterie();
+            sliderPauseVolume.Value = MenuOptions.VolumeValeur;
 
+            Minuterie();
             Audio.LancerMusiqueDeFond();
         }
 
@@ -135,6 +138,14 @@ namespace SAE101Foudre
 
         private void UCJeu_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Escape)
+            {
+                BasculerPause();
+                return;
+            }
+
+            if (estEnPause) return;
+
             if (e.Key == MenuOptions.toucheDroit)
             {
                 droite = true;
@@ -169,6 +180,48 @@ namespace SAE101Foudre
             {
                 gauche = false;
                 imgPerso.Source = Ressources.PersoGauche;
+            }
+        }
+
+        // -----------------------------------------Gestion Pause---------------------------------------------------------
+
+        private void BasculerPause()
+        {
+            if (estEnPause)
+            {
+                estEnPause = false;
+                gridPause.Visibility = Visibility.Collapsed;
+                gameTimer.Start();
+            }
+            else
+            {
+                estEnPause = true;
+                gridPause.Visibility = Visibility.Visible;
+                gameTimer.Stop();
+
+                droite = false;
+                gauche = false;
+            }
+        }
+
+        private void ButReprendre_Click(object sender, RoutedEventArgs e)
+        {
+            BasculerPause();
+        }
+
+        private void ButQuitter_Click(object sender, RoutedEventArgs e)
+        {
+            gameTimer.Stop();
+            Audio.ArreterMusique();
+            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new MenuAccueil());
+        }
+
+        private void SliderPauseVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (labPauseVolumeValue != null)
+            {
+                MenuOptions.VolumeValeur = Math.Round(sliderPauseVolume.Value, 0);
+                labPauseVolumeValue.Content = $"{MenuOptions.VolumeValeur}%";
             }
         }
 
@@ -399,5 +452,6 @@ namespace SAE101Foudre
             Canvas.SetTop(imgPerso, niveauSol - imgPerso.Height);
             Canvas.SetLeft(imgPerso, canvasJeu.ActualWidth * 0.50);
         }
+
     }
 }

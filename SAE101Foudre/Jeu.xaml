@@ -9,17 +9,36 @@
     <UserControl.Background>
         <ImageBrush x:Name="imgFond" ImageSource="Images/imgFond.jpeg"/>
     </UserControl.Background>
-    <Canvas x:Name="canvasJeu">
-        <Image x:Name="imgSol" Canvas.Bottom="-30" Canvas.Left="0" Source="/Images/imgSol.png" >
-            <Image.Width>
-                <Binding Path="ActualWidth" ElementName="canvasJeu"/>
-            </Image.Width>
-        </Image>
-        <Image x:Name="imgPerso" Height="125" Source="/Images/imgPerso0.png" />
-        <TextBlock x:Name="txtScore" Text="Score : 0" FontFamily="Algerian" Canvas.Top="20" Canvas.Left="20" FontSize="50" Padding="80,35" HorizontalAlignment="Left" VerticalAlignment="Center" Width="432">
-            <TextBlock.Background>
-                <ImageBrush ImageSource="Images/imgParchemin.png"/>
-            </TextBlock.Background>
-        </TextBlock>
-    </Canvas>
+    <Grid>
+        <Canvas x:Name="canvasJeu">
+            <Image x:Name="imgSol" Canvas.Bottom="-30" Canvas.Left="0" Source="/Images/imgSol.png" >
+                <Image.Width>
+                    <Binding Path="ActualWidth" ElementName="canvasJeu"/>
+                </Image.Width>
+            </Image>
+            <Image x:Name="imgPerso" Height="125" Source="/Images/imgPerso0.png" />
+            <TextBlock x:Name="txtScore" Text="Score : 0" FontFamily="Algerian" Canvas.Top="20" Canvas.Left="20" FontSize="50" Padding="80,35" HorizontalAlignment="Left" VerticalAlignment="Center" Width="432">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="Images/imgParchemin.png"/>
+                </TextBlock.Background>
+            </TextBlock>
+        </Canvas>
+
+        <Grid x:Name="gridPause" Visibility="Collapsed" Background="#CC000000">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="PAUSE" FontFamily="Algerian" FontSize="80" Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,50"/>
+
+                <Button Content="REPRENDRE" FontFamily="Algerian" FontSize="30" Width="300" Height="60" Margin="10" Click="ButReprendre_Click"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,30,10,30">
+                    <Label Content="VOLUME :" FontFamily="Algerian" FontSize="30" Foreground="White" VerticalAlignment="Center"/>
+                    <Slider x:Name="sliderPauseVolume" Width="200" Maximum="100" Minimum="0" Value="20" VerticalAlignment="Center" Margin="20,0,0,0" ValueChanged="SliderPauseVolume_ValueChanged"/>
+                    <Label x:Name="labPauseVolumeValue" Content="20%" FontFamily="Algerian" FontSize="30" Foreground="White" VerticalAlignment="Center" Width="80"/>
+                </StackPanel>
+
+                <Button Content="QUITTER" FontFamily="Algerian" FontSize="30" Width="300" Height="60" Margin="10" Click="ButQuitter_Click" Background="#FF6B6B"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+    
 </UserControl>
