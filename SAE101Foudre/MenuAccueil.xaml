@@ -14,7 +14,7 @@
             <Image x:Name="imgLogoAcceuil" Source="/Images/imgLogoAcceuil.png" Stretch="Fill" Width="704" Height="586"/>
             <Button x:Name="butJouerAcceuil" Content="JOUER" Width="280" Height="80" Foreground="White" Background="#FF0082A0" Click="butJouerAcceuil_Click" FontFamily="Algerian" FontSize="24" Margin="0,0,0,40"/>
             <Button x:Name="butOptionsAcceuil" Content="OPTIONS" Width="280" Height="80" Background="#FF0082A0" Foreground="White" Click="butOptionsAcceuil_Click" FontFamily="Algerian" FontSize="24" Margin="0,0,0,40"/>
-            <Button x:Name="butQuitterAcceuil" Content="QUITTER" Background="#FF0082A0" Foreground="White" Width="280" Height="80" Click="butQuitterAcceuil_Click" FontFamily="Algerian" FontSize="24"/>
+            <Button x:Name="butQuitterAcceuil" Content="QUITTER" Background="#FF0082A0" Foreground="White" Width="280" Height="80" Click="butQuitterAcceuil_Click" FontFamily="Algerian" FontSize="24" Margin="0,0,0,80"/>
         </StackPanel>
     </Grid>
 </UserControl>
