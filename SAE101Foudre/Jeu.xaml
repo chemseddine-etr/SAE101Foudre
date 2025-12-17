@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SAE101Foudre"
              mc:Ignorable="d"
-             d:DesignHeight="1080" d:DesignWidth="1920" x:Name="UCJeu" KeyDown="UCJeu_KeyDown" KeyUp="UCJeu_KeyUp" Loaded="UCJeu_Loaded">
+             d:DesignHeight="1080" d:DesignWidth="1920" x:Name="UCJeu" KeyDown="UCJeu_KeyDown" KeyUp="UCJeu_KeyUp" Loaded="UCJeu_Loaded" Unloaded="UCJeu_Unloaded">
     <UserControl.Background>
         <ImageBrush x:Name="imgFond" ImageSource="Images/imgFond.jpeg"/>
     </UserControl.Background>

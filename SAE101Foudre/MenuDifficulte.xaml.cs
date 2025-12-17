@@ -20,10 +20,10 @@ namespace SAE101Foudre
     /// </summary>
     public partial class MenuDifficulte : UserControl
     {
-        public static int frequenceEclair;
-        public static int vitesseEclair;
-        public static int frequenceBoule;
-        public static int vitesseBoule;
+        public static int frequenceEclair = 75;
+        public static int vitesseEclair = 9;
+        public static int frequenceBoule = 170;
+        public static int vitesseBoule = 12;
 
         public MenuDifficulte()
         {

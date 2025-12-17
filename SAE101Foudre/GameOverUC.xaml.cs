@@ -34,7 +34,7 @@ namespace SAE101Foudre
 
         private void butMenuRejouer_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new Jeu());
+            ((MainWindow)Application.Current.MainWindow).OuvrirUC(new MenuDifficulte());
         }
 
         private void butQuitterGameOver_Click(object sender, RoutedEventArgs e)

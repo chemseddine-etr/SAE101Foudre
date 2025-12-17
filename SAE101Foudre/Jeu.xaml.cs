@@ -29,9 +29,6 @@ namespace SAE101Foudre
         public static List<Image> boules = new List<Image>();
         public static List<Line> pluie = new List<Line>();
 
-        public static int nombreGouttes = 80;
-        public static int vitessePluie = 25;
-
         // -----------------------------------------Variables de deplacement---------------------------------------------
 
         public bool droite = false;
@@ -48,10 +45,13 @@ namespace SAE101Foudre
         public int vitesseEclair = MenuDifficulte.vitesseEclair;
         public int frequenceBoule = MenuDifficulte.frequenceBoule;
         public int vitesseBoule = MenuDifficulte.vitesseBoule;
-        
+
+        public static int nombreGouttes = 80;
+        public static int vitessePluie = 25;
+
         // ---------------------------------------------------------------------------------------------------------
 
-        public static DispatcherTimer gameTimer = new DispatcherTimer();
+        DispatcherTimer gameTimer = new DispatcherTimer();
 
         public static Random alea = new Random();
 
@@ -138,10 +138,9 @@ namespace SAE101Foudre
 
         private void UCJeu_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Escape)
+            if (e.Key == Key.E)
             {
                 BasculerPause();
-                return;
             }
 
             if (estEnPause) return;
@@ -179,7 +178,7 @@ namespace SAE101Foudre
             else if (e.Key == MenuOptions.toucheGauche)
             {
                 gauche = false;
-                imgPerso.Source = Ressources.PersoGauche;
+                imgPerso.Source = Ressources.PersoDroit;
             }
         }
 
@@ -222,6 +221,8 @@ namespace SAE101Foudre
             {
                 MenuOptions.VolumeValeur = Math.Round(sliderPauseVolume.Value, 0);
                 labPauseVolumeValue.Content = $"{MenuOptions.VolumeValeur}%";
+
+                Audio.ChangerVolume(MenuOptions.VolumeValeur);
             }
         }
 
@@ -453,5 +454,10 @@ namespace SAE101Foudre
             Canvas.SetLeft(imgPerso, canvasJeu.ActualWidth * 0.50);
         }
 
+        private void UCJeu_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.KeyDown -= UCJeu_KeyDown;
+            Application.Current.MainWindow.KeyUp -= UCJeu_KeyUp;
+        }
     }
 }

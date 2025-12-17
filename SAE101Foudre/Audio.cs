@@ -38,5 +38,16 @@ namespace SAE101Foudre
             musiqueFond.Stop();
             musiqueEffet.Stop();
         }
+
+        public static void ChangerVolume(double volumeSur100)
+        {
+            double volumeReel = volumeSur100 / 100.0;
+
+            if (musiqueFond != null)
+                musiqueFond.Volume = volumeReel;
+
+            if (musiqueEffet != null)
+                musiqueEffet.Volume = volumeReel;
+        }
     }
 }
