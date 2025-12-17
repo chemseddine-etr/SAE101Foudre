@@ -5,15 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SAE101Foudre"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="1600">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Images/imgFondOptions.png"/>
         </Grid.Background>
         <Label x:Name="labOptions" Content="OPTIONS" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" FontFamily="Algerian" FontSize="72"/>
-        <Button x:Name="butDifficileOptions" Content="DIFFICILE" HorizontalAlignment="Left" Margin="158,310,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.774,1.719" Height="80" Width="240" FontFamily="Algerian" FontSize="24" Background="#FFFF2D2D" Click="butDifficileOptions_Click"/>
-        <Button x:Name="butMoyenOptions" Content="MOYEN" HorizontalAlignment="Left" Margin="158,400,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.267,2.66" Height="80" Width="240" FontFamily="Algerian" FontSize="24" Background="#FFFDEB28" Click="butMoyenOptions_Click"/>
-        <Button x:Name="butFacileOptions" Content="FACILE" HorizontalAlignment="Left" Margin="158,490,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.027,0.989" Height="80" Width="240" FontFamily="Algerian" FontSize="24" Background="#FF17FF0F" Click="butFacileOptions_Click"/>
         <Label x:Name="labDifficluteOptions" Content="DIFICULTE" HorizontalAlignment="Left" Margin="152,233,0,0" VerticalAlignment="Top" Height="72" Width="252" FontSize="48" FontFamily="Algerian"/>
         <Button x:Name="butRetourOptions" Content="RETOUR" HorizontalAlignment="Center" Margin="0,676,0,0" VerticalAlignment="Top" FontFamily="Algerian" FontSize="24" Height="80" Width="240" Click="butRetourOptions_Click"/>
         <Label x:Name="labDifficulteUpdateFacile" Content="DIFICULTE SELECTIONNEE : FACILE" HorizontalAlignment="Center" Margin="0,611,0,0" VerticalAlignment="Top" Height="72" Width="884" FontSize="48" FontFamily="Algerian" RenderTransformOrigin="0.507,0.556"/>

@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SAE101Foudre"
              mc:Ignorable="d"
-             x:Name="UCAccueil" >
+             x:Name="UCAccueil" d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Background>
+        <ImageBrush ImageSource="/Images/imgFondAcceuil.png"/>
+    </UserControl.Background>
     <Grid x:Name="GridAcceuil">
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/imgFondAcceuil.png"/>
-        </Grid.Background>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,50" >
             <Image x:Name="imgLogoAcceuil" Source="/Images/imgLogoAcceuil.png" Stretch="Fill" Width="704" Height="586"/>
             <Button x:Name="butJouerAcceuil" Content="JOUER" Width="280" Height="80" Foreground="White" Background="#FF0082A0" Click="butJouerAcceuil_Click" FontFamily="Algerian" FontSize="24" Margin="0,0,0,40"/>

@@ -64,11 +64,10 @@ namespace SAE101Foudre
         public static int gravite = 1; //vitesse du personnage qui tombe (1 = lente, 5 = rapide)
         public static int hauteurSaut = -23; //hauteur du saut (-10 = tres bas, -50 = tres haut)
 
-        public int frequenceEclair = MenuAccueil.frequenceEclair;
-        public int vitesseEclair = MenuAccueil.vitesseEclair;
-        public int frequenceBoule = MenuAccueil.frequenceBoule;
-        public int vitesseBoule = MenuAccueil.vitesseBoule;
-
+        public int frequenceEclair = MenuDifficulte.frequenceEclair;
+        public int vitesseEclair = MenuDifficulte.vitesseEclair;
+        public int frequenceBoule = MenuDifficulte.frequenceBoule;
+        public int vitesseBoule = MenuDifficulte.vitesseBoule;
         
         // ---------------------------------------------------------------------------------------------------------
 
@@ -198,6 +197,8 @@ namespace SAE101Foudre
                 gauche = false;
             }
         }
+
+        //---------------------------------------------Animations sprites---------------------------------------------------------
 
         private void AnimerMarche(bool versLaDroite)
         {
