@@ -95,6 +95,7 @@ namespace SAE101Foudre
         {
             InitializeComponent();
 
+
             score = 0;       
 
             animationMarche = new BitmapImage[] { imgPerosD1, imgPerosD2, imgPerosD3, imgPerosD4, imgPerosD5, imgPerosD6, imgPerosD7, imgPerosD8 };
@@ -163,7 +164,7 @@ namespace SAE101Foudre
             if (e.Key == MenuOptions.toucheDroit)
             {
                 droite = true;
-                gauche = false;                
+                gauche = false;
             }
             else if (e.Key == MenuOptions.toucheGauche)
             {

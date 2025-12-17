@@ -24,12 +24,12 @@
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="labControles" Content="CONTRÔLES" Height="72" FontSize="48" FontFamily="Algerian" Width="344" Margin="0,0,200,0"/>
                 <StackPanel>
-                    <Button x:Name="btnGauche" Content="GAUCHE : Q" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
-                    Click="BtnConfig_Click" PreviewKeyDown="BtnConfig_KeyDown"/>
-                    <Button x:Name="btnDroit" Content="DROITE : D" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
-                    Click="BtnConfig_Click" PreviewKeyDown="BtnConfig_KeyDown"/>
-                    <Button x:Name="btnSaut" Content="SAUT : Space" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
-                    Click="BtnConfig_Click" PreviewKeyDown="BtnConfig_KeyDown"/>
+                    <Button x:Name="butGauche" Content="GAUCHE : Q" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
+                    Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
+                    <Button x:Name="butDroit" Content="DROITE : D" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
+                    Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
+                    <Button x:Name="butSaut" Content="SAUT : Space" FontFamily="Algerian" FontSize="24" Width="400" Height="50" Margin="5"
+                    Click="ButConfig_Click" PreviewKeyDown="ButConfig_KeyDown"/>
                 </StackPanel>
             </StackPanel>
 

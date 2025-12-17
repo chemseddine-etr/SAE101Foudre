@@ -31,7 +31,7 @@ namespace SAE101Foudre
         {
             InitializeComponent();
             MettreAJourTextes();
-        }        
+        }
 
         private void sliderVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -41,33 +41,33 @@ namespace SAE101Foudre
 
         private void MettreAJourTextes()
         {
-            btnGauche.Content = "GAUCHE : " + toucheGauche.ToString();
-            btnDroit.Content = "DROITE : " + toucheDroit.ToString();
-            btnSaut.Content = "SAUT : " + toucheSauter.ToString();
+            butGauche.Content = "GAUCHE : " + toucheGauche.ToString();
+            butDroit.Content = "DROITE : " + toucheDroit.ToString();
+            butSaut.Content = "SAUT : " + toucheSauter.ToString();
         }
 
-        private void BtnConfig_Click(object sender, RoutedEventArgs e)
+        private void ButConfig_Click(object sender, RoutedEventArgs e)
         {
             boutonActif = (Button)sender;
             boutonActif.Content = "Appuyez sur une touche...";
             boutonActif.Focus();
         }
 
-        private void BtnConfig_KeyDown(object sender, KeyEventArgs e)
+        private void ButConfig_KeyDown(object sender, KeyEventArgs e)
         {
 
             e.Handled = true;
             Key nouvelleTouche = e.Key;
 
-            if (boutonActif == btnGauche)
+            if (boutonActif == butGauche)
             {
                 toucheGauche = nouvelleTouche;
             }
-            else if (boutonActif == btnDroit)
+            else if (boutonActif == butDroit)
             {
                 toucheDroit = nouvelleTouche;
             }
-            else if (boutonActif == btnSaut)
+            else if (boutonActif == butSaut)
             {
                 toucheSauter = nouvelleTouche;
             }
