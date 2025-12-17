@@ -160,19 +160,17 @@ namespace SAE101Foudre
 
         private void UCJeu_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.D)
+            if (e.Key == MenuOptions.toucheDroit)
             {
                 droite = true;
-                gauche = false;
-                
+                gauche = false;                
             }
-            else if (e.Key == Key.Q)
+            else if (e.Key == MenuOptions.toucheGauche)
             {
                 gauche = true;
                 droite = false;
-                
             }
-            if (e.Key == Key.Space && auSol == true)
+            if (e.Key == MenuOptions.toucheSauter && auSol == true)
             {
                 vitesseVerticale = hauteurSaut;
                 auSol = false;
@@ -188,12 +186,12 @@ namespace SAE101Foudre
 
         private void UCJeu_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.D)
+            if (e.Key == MenuOptions.toucheDroit)
             {
                 droite = false;
                 imgPerso.Source = imgPerosD;
             }
-            else if (e.Key == Key.Q)
+            else if (e.Key == MenuOptions.toucheGauche)
             {
                 gauche = false;
                 imgPerso.Source = imgPerosD;
